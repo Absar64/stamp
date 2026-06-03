@@ -1,0 +1,74 @@
+/* ===== Order confirmation page ===== */
+.ok-page{padding-bottom:0;min-height:100vh;display:flex;flex-direction:column}
+
+.ok{position:relative;flex:1;display:grid;place-items:center;padding:120px 22px 70px;overflow:hidden}
+.ok__glow{
+  position:absolute;width:min(760px,85vw);aspect-ratio:1;border-radius:50%;filter:blur(150px);
+  background:radial-gradient(circle,rgba(61,220,132,.22),rgba(0,163,255,.16) 52%,transparent 72%);
+  top:-10%;left:50%;transform:translateX(-50%);pointer-events:none;z-index:0;
+}
+
+/* card */
+.ok__card{
+  position:relative;z-index:1;width:100%;max-width:600px;text-align:center;
+  background:linear-gradient(180deg,#0e0e11,#0a0a0c);border:1px solid var(--line);
+  border-radius:30px;padding:48px 36px 40px;
+  box-shadow:0 50px 100px -40px rgba(0,0,0,.9);
+  opacity:0;transform:translateY(18px) scale(.98);animation:okIn .7s var(--ease) .05s forwards;
+}
+@keyframes okIn{to{opacity:1;transform:none}}
+
+/* animated check */
+.ok__check{display:grid;place-items:center;margin-bottom:24px}
+.ok__ring{stroke:var(--green);stroke-dasharray:340;stroke-dashoffset:340;animation:okRing .7s var(--ease) .25s forwards}
+.ok__tick{stroke:var(--green);stroke-dasharray:80;stroke-dashoffset:80;animation:okTick .45s var(--ease) .75s forwards}
+.ok__check svg{filter:drop-shadow(0 0 16px rgba(61,220,132,.45))}
+@keyframes okRing{to{stroke-dashoffset:0}}
+@keyframes okTick{to{stroke-dashoffset:0}}
+
+.ok__eyebrow{
+  display:inline-block;font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--green);background:color-mix(in srgb,var(--green) 14%,transparent);
+  border:1px solid color-mix(in srgb,var(--green) 35%,transparent);padding:6px 13px;border-radius:100px;
+}
+.ok__title{font-size:clamp(1.9rem,5vw,2.8rem);font-weight:900;margin:18px 0 12px}
+.ok__lead{color:var(--muted);font-size:1.05rem;max-width:46ch;margin:0 auto}
+
+/* order reference */
+.ok__order{
+  display:inline-flex;flex-direction:column;gap:3px;margin:26px 0 6px;
+  background:var(--surface-2);border:1px dashed var(--line);border-radius:var(--radius-sm);padding:14px 26px;
+}
+.ok__order span{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.ok__order strong{font-size:1.3rem;font-weight:800;letter-spacing:.06em;font-variant-numeric:tabular-nums}
+
+/* what's next */
+.ok__next{list-style:none;display:flex;flex-direction:column;gap:14px;text-align:left;margin:28px 0 8px}
+.ok__next li{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-sm);padding:15px 18px}
+.ok__ico{font-size:1.4rem;line-height:1.4;flex:none}
+.ok__next strong{display:block;font-size:.98rem;font-weight:700;margin-bottom:2px}
+.ok__next p{color:var(--muted);font-size:.88rem}
+
+/* cta */
+.ok__cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+.ok__help{color:var(--muted);font-size:.86rem;margin-top:22px}
+.ok__help a{color:var(--green);font-weight:600}
+
+/* confetti */
+.ok__confetti{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ok__confetti i{
+  position:absolute;top:-24px;left:var(--x);width:9px;height:14px;border-radius:2px;
+  background:var(--c);opacity:0;
+  animation:okFall 2.8s var(--ease) var(--d) 1 forwards;
+}
+@keyframes okFall{
+  0%{opacity:0;transform:translateY(-10px) rotate(0deg)}
+  10%{opacity:1}
+  100%{opacity:0;transform:translateY(78vh) rotate(540deg)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .ok__card,.ok__ring,.ok__tick,.ok__confetti i{animation:none}
+  .ok__card{opacity:1;transform:none}
+  .ok__ring,.ok__tick{stroke-dashoffset:0}
+}

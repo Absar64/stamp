@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stamp — Program it to do anything.</title>
+  <meta name="description" content="Stamp — boutique programmable fidget clickers. Turn a single click into a routine of your choice. Endless possibilities." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Sticky Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#home" class="brand" aria-label="Stamp home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26"><rect x="5" y="5" width="22" height="22" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="5" fill="currentColor"/></svg>
+        </span>
+        <span class="brand__name">Stamp</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#home" class="nav__link is-active" data-accent="yellow">Home</a>
+        <a href="#products" class="nav__link" data-accent="blue">Products</a>
+        <a href="#accessories" class="nav__link" data-accent="purple">Accessories</a>
+        <a href="#support" class="nav__link" data-accent="yellow">Support</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="icon-btn" aria-label="Search">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
+        </button>
+        <button class="icon-btn cart" aria-label="Cart">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
+          <span class="cart__count">2</span>
+        </button>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="home">
+      <div class="hero__glow hero__glow--purple"></div>
+      <div class="hero__glow hero__glow--blue"></div>
+      <div class="hero__grid">
+        <div class="hero__copy">
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Programmable fidget hardware</span>
+          <h1 class="hero__title">
+            Program it<br />to do <span class="grad-text">anything.</span>
+          </h1>
+          <p class="hero__lead">
+            One tactile click. Infinite intent. Stamp turns a single press into a
+            routine of your choice — <span class="rotator" id="rotator" aria-live="polite">turn the lights on in your bedroom</span>
+          </p>
+          <div class="hero__cta">
+            <a href="#products" class="btn btn--primary">
+              Shop clickers
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </a>
+            <a href="#configurator" class="btn btn--ghost">See it work</a>
+          </div>
+          <ul class="hero__stats">
+            <li><strong>40+</strong><span>actions per click</span></li>
+            <li><strong>No-code</strong><span>setup in minutes</span></li>
+            <li><strong>USB-C</strong><span>+ wireless</span></li>
+          </ul>
+        </div>
+
+        <div class="hero__stage">
+          <div class="stage__ring"></div>
+          <!-- Hero product: Coffee Cup Clicker -->
+          <div class="stage__product" id="heroProduct">
+            <!-- replace assets/hero-cortado.png with a real product photo (square, transparent bg) -->
+            <img class="art art--coffee" src="assets/hero-cortado.png" alt="Cortado coffee-cup clicker" />
+            <div class="stage__tag stage__tag--yellow">Clicker</div>
+            <div class="stage__pulse"></div>
+          </div>
+          <p class="stage__caption">Cortado <span>·</span> matte ceramic finish</p>
+        </div>
+      </div>
+
+      <!-- action chips that drive the rotator -->
+      <div class="hero__chips" aria-hidden="false">
+        <span class="chip is-active">💡 Lights on</span>
+        <span class="chip">💌 "I miss you"</span>
+        <span class="chip">🎧 Focus playlist</span>
+        <span class="chip">☕ Start the kettle</span>
+        <span class="chip">📸 Capture the moment</span>
+        <span class="chip">🚪 Lock the door</span>
+      </div>
+    </section>
+
+    <!-- ===== Possibilities band ===== -->
+    <section class="band" id="possibilities">
+      <h2 class="band__title">A single click. <span class="grad-text">Endless possibilities.</span></h2>
+      <div class="band__grid">
+        <article class="poss">
+          <span class="poss__icon" style="--c:var(--yellow)">💡</span>
+          <h3>Turn the lights on</h3>
+          <p>Wake your bedroom, studio, or stream setup the instant you press down.</p>
+        </article>
+        <article class="poss">
+          <span class="poss__icon" style="--c:var(--purple)">💌</span>
+          <h3>Let your partner know you miss them</h3>
+          <p>One tap fires off a text, a heart, or a tiny ritual only the two of you share.</p>
+        </article>
+        <article class="poss">
+          <span class="poss__icon" style="--c:var(--blue)">⚡</span>
+          <h3>Run an entire routine</h3>
+          <p>Chain dozens of actions — apps, lights, messages, macros — into one click.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Product grid ===== -->
+    <section class="catalog" id="products">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> The collection</span>
+          <h2 class="section-head__title">Fidget hardware with purpose</h2>
+        </div>
+        <a href="#" class="link-arrow">View all <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+      </div>
+
+      <div class="grid" id="productGrid">
+        <!-- Card: Coffee Cup -->
+        <article class="card">
+          <div class="card__media">
+            <span class="tag tag--yellow">Clicker</span>
+            <!-- replace assets/product-cortado.png with a real product photo -->
+            <img class="art" src="assets/product-cortado.png" alt="Cortado coffee-cup clicker" />
+          </div>
+          <div class="card__body">
+            <div class="card__row">
+              <h3 class="card__name">Cortado</h3>
+              <span class="card__price">$89</span>
+            </div>
+            <p class="card__desc">Coffee-cup clicker. Matte ceramic, weighted base.</p>
+            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          </div>
+        </article>
+
+        <!-- Card: Mushroom -->
+        <article class="card">
+          <div class="card__media">
+            <span class="tag tag--purple">Clicker</span>
+            <!-- replace assets/product-shiitake.png with a real product photo -->
+            <img class="art" src="assets/product-shiitake.png" alt="Shiitake mushroom clicker" />
+          </div>
+          <div class="card__body">
+            <div class="card__row">
+              <h3 class="card__name">Shiitake</h3>
+              <span class="card__price">$79</span>
+            </div>
+            <p class="card__desc">Mushroom clicker. Soft-touch cap, satisfying travel.</p>
+            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          </div>
+        </article>
+
+        <!-- Card: Pebble -->
+        <article class="card">
+          <div class="card__media">
+            <span class="tag tag--blue">Clicker</span>
+            <!-- replace assets/product-skipping-stone.png with a real product photo -->
+            <img class="art" src="assets/product-skipping-stone.png" alt="Skipping Stone pebble clicker" />
+          </div>
+          <div class="card__body">
+            <div class="card__row">
+              <h3 class="card__name">Skipping Stone</h3>
+              <span class="card__price">$69</span>
+            </div>
+            <p class="card__desc">Pocket pebble clicker. Anodized aluminium shell.</p>
+            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          </div>
+        </article>
+
+        <!-- Card: Knob accessory -->
+        <article class="card" id="accessories">
+          <div class="card__media">
+            <span class="tag tag--green">Accessory</span>
+            <!-- replace assets/product-dial.png with a real product photo -->
+            <img class="art" src="assets/product-dial.png" alt="Dial No.4 rotary knob" />
+          </div>
+          <div class="card__body">
+            <div class="card__row">
+              <h3 class="card__name">Dial No.4</h3>
+              <span class="card__price">$59</span>
+            </div>
+            <p class="card__desc">Rotary knob accessory. Scroll, scrub, and dim.</p>
+            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          </div>
+        </article>
+
+        <!-- Card: Keycap set -->
+        <article class="card">
+          <div class="card__media">
+            <span class="tag tag--green">Accessory</span>
+            <!-- replace assets/product-neon-caps.png with a real product photo -->
+            <img class="art" src="assets/product-neon-caps.png" alt="Neon Caps keycap set" />
+          </div>
+          <div class="card__body">
+            <div class="card__row">
+              <h3 class="card__name">Neon Caps</h3>
+              <span class="card__price">$34</span>
+            </div>
+            <p class="card__desc">Swap-on caps. Three saturated colourways.</p>
+            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          </div>
+        </article>
+
+        <!-- Card: Dock -->
+        <article class="card">
+          <div class="card__media">
+            <span class="tag tag--green">Accessory</span>
+            <!-- replace assets/product-halo-dock.png with a real product photo -->
+            <img class="art" src="assets/product-halo-dock.png" alt="Halo Dock charging dock" />
+          </div>
+          <div class="card__body">
+            <div class="card__row">
+              <h3 class="card__name">Halo Dock</h3>
+              <span class="card__price">$49</span>
+            </div>
+            <p class="card__desc">Wireless charging dock with ambient glow ring.</p>
+            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== No-code configurator ===== -->
+    <section class="config" id="configurator">
+      <div class="config__glow"></div>
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Live demo</span>
+          <h2 class="section-head__title">Make it do what you want</h2>
+        </div>
+      </div>
+
+      <div class="config__panel">
+        <!-- left: live 3D-ish hardware -->
+        <div class="config__stage">
+          <div class="hw" id="hwScene">
+            <div class="hw__plate"></div>
+            <button class="keycap keycap--yellow" data-action="lights" aria-label="Lights">
+              <span class="keycap__top">💡</span>
+            </button>
+            <button class="keycap keycap--blue" data-action="lock" aria-label="Lock door">
+              <span class="keycap__top">🔒</span>
+            </button>
+            <button class="keycap keycap--purple" data-action="music" aria-label="Music">
+              <span class="keycap__top">🎧</span>
+            </button>
+            <div class="hw__knob" aria-hidden="true"><span></span></div>
+          </div>
+          <p class="config__hint">Press a key to control the room →</p>
+        </div>
+
+        <!-- right: live bedroom -->
+        <div class="config__room">
+          <div class="room__head">
+            <span class="room__title">Your bedroom · live</span>
+            <span class="room__status" id="roomStatus">All quiet</span>
+          </div>
+          <div class="room" id="room">
+            <svg class="room__svg" viewBox="0 0 460 360" role="img" aria-label="Bedroom controlled by the clicker">
+              <defs>
+                <linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#16161e"/><stop offset="1" stop-color="#0e0e14"/></linearGradient>
+                <radialGradient id="warmG" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#ffd84d" stop-opacity=".9"/><stop offset="100%" stop-color="#ffd84d" stop-opacity="0"/></radialGradient>
+                <linearGradient id="coneG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a" stop-opacity=".5"/><stop offset="100%" stop-color="#ffe27a" stop-opacity="0"/></linearGradient>
+                <filter id="roomSoft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="14"/></filter>
+              </defs>
+
+              <!-- walls + floor -->
+              <rect x="0" y="0" width="460" height="300" fill="url(#wallG)"/>
+              <rect x="0" y="300" width="460" height="60" fill="#0a0a0e"/>
+              <line x1="0" y1="300" x2="460" y2="300" stroke="#23232c" stroke-width="2"/>
+
+              <!-- light spill (only when lit) -->
+              <polygon class="room__cone" points="214,96 256,96 326,300 144,300" fill="url(#coneG)"/>
+              <circle class="room__glow" cx="235" cy="118" r="84" fill="url(#warmG)" filter="url(#roomSoft)"/>
+
+              <!-- pendant lamp -->
+              <line x1="235" y1="0" x2="235" y2="74" stroke="#33333d" stroke-width="3"/>
+              <path d="M212 96 L258 96 L250 74 L220 74 Z" fill="#26262e" stroke="#3a3a44" stroke-width="2"/>
+              <ellipse cx="235" cy="96" rx="23" ry="5" fill="#1a1a20"/>
+              <circle class="room__bulb" cx="235" cy="106" r="11" fill="#2a2a20"/>
+
+              <!-- door (left) -->
+              <rect x="46" y="120" width="98" height="180" rx="4" fill="#1b1b22" stroke="#34343e" stroke-width="2"/>
+              <rect x="54" y="128" width="82" height="164" rx="3" fill="#181820" stroke="#2c2c36" stroke-width="1.5"/>
+              <rect x="62" y="138" width="66" height="62" rx="3" fill="#13131a" stroke="#26262e" stroke-width="1.5"/>
+              <rect x="62" y="212" width="66" height="70" rx="3" fill="#13131a" stroke="#26262e" stroke-width="1.5"/>
+              <circle cx="124" cy="208" r="4" fill="#6a6a76"/>
+              <!-- lock badge -->
+              <g class="room__lock">
+                <circle cx="95" cy="108" r="17" fill="#14141a" stroke="#2c2c36" stroke-width="2"/>
+                <path class="room__lock-shackle room__lock-shackle--open" d="M89 104 v-4 a7 7 0 0 1 13 -3" fill="none" stroke-width="3" stroke-linecap="round"/>
+                <path class="room__lock-shackle room__lock-shackle--closed" d="M88 104 v-5 a7 7 0 0 1 14 0 v5" fill="none" stroke-width="3" stroke-linecap="round"/>
+                <rect class="room__lock-body" x="86" y="103" width="18" height="14" rx="3"/>
+                <circle cx="95" cy="110" r="2.4" fill="#0c120e"/>
+              </g>
+
+              <!-- bed (center) -->
+              <rect x="150" y="200" width="10" height="60" rx="3" fill="#26222e"/>
+              <rect x="156" y="246" width="156" height="14" rx="4" fill="#2a2230"/>
+              <rect x="156" y="232" width="156" height="20" rx="8" fill="#3a3550"/>
+              <rect x="160" y="226" width="46" height="22" rx="8" fill="#e7e7ef"/>
+              <path d="M206 252 H312 V238 a8 8 0 0 0 -8 -8 H206 Z" fill="#5b4fb0"/>
+              <rect x="308" y="214" width="8" height="46" rx="3" fill="#26222e"/>
+
+              <!-- speaker (right, on floor) -->
+              <rect x="338" y="214" width="64" height="86" rx="10" fill="#15151c" stroke="#2d2d37" stroke-width="2"/>
+              <circle cx="370" cy="240" r="18" fill="#0a0a0e" stroke="#2d2d37" stroke-width="2"/>
+              <circle cx="370" cy="240" r="9" fill="#1c1c24" stroke="#3a3a44" stroke-width="1.5"/>
+              <circle cx="370" cy="278" r="9" fill="#0a0a0e" stroke="#2d2d37" stroke-width="2"/>
+              <!-- sound waves (only when playing) -->
+              <g class="room__waves" stroke="#00A3FF" stroke-width="3" fill="none" stroke-linecap="round">
+                <path class="room__wave room__wave--1" d="M330 230 q-10 10 0 20"/>
+                <path class="room__wave room__wave--2" d="M320 222 q-18 18 0 36"/>
+                <path class="room__wave room__wave--3" d="M310 214 q-26 26 0 52"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== How it works (scroll-pinned) ===== -->
+    <section class="how" id="how">
+      <div class="how__pin">
+        <div class="how__inner">
+          <div class="how__stage">
+            <div class="how__glow"></div>
+            <svg class="how__svg" viewBox="0 0 480 420" role="img" aria-label="How a Stamp heart clicker works">
+              <defs>
+                <linearGradient id="capGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff7aa8"/><stop offset="100%" stop-color="#e5005a"/></linearGradient>
+                <linearGradient id="baseGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#26262f"/><stop offset="100%" stop-color="#121217"/></linearGradient>
+                <filter id="soft" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="11"/></filter>
+              </defs>
+
+              <!-- ground shadow -->
+              <ellipse id="how-shadow" cx="150" cy="302" rx="86" ry="15" fill="#000" opacity=".5"/>
+
+              <!-- exploded / assembling components (heart clicker, no fan) -->
+              <g id="comp-base">
+                <rect x="94" y="266" width="112" height="22" rx="11" fill="url(#baseGrad)" stroke="#3a3a44" stroke-width="2"/>
+                <ellipse cx="150" cy="266" rx="56" ry="13" fill="#16161c" stroke="#2c2c36" stroke-width="1.5"/>
+                <ellipse cx="150" cy="264" rx="44" ry="9" fill="#0c0c10"/>
+              </g>
+
+              <g id="comp-pcb">
+                <rect x="106" y="230" width="88" height="28" rx="8" fill="#0f4d44" stroke="#1c6b5f" stroke-width="2"/>
+                <rect x="115" y="237" width="15" height="14" rx="2" fill="#E5FF00"/>
+                <rect x="136" y="240" width="20" height="9" rx="2" fill="#0b332e"/>
+                <rect x="162" y="237" width="10" height="14" rx="2" fill="#A855F7"/>
+                <circle cx="184" cy="244" r="5" fill="#1E90FF"/>
+              </g>
+
+              <!-- heart-shaped button cap -->
+              <g id="comp-cap">
+                <path d="M150 214 C 116 188 98 168 98 146 C 98 130 110 120 124 120 C 136 120 145 127 150 137 C 155 127 164 120 176 120 C 190 120 202 130 202 146 C 202 168 184 188 150 214 Z" fill="url(#capGrad)" stroke="#ff9bbd" stroke-width="1.5"/>
+                <path d="M126 132 a11 9 0 0 1 16 2" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity=".55"/>
+              </g>
+
+              <!-- click ripple (recolored per example) -->
+              <circle id="ripple" cx="150" cy="160" r="22" fill="none" stroke="#E5FF00" stroke-width="3" opacity="0"/>
+
+              <!-- connection signal to a connected device -->
+              <path id="signal" d="M198 156 C 244 146, 290 150, 332 176" fill="none" stroke="#A855F7" stroke-width="3" stroke-linecap="round"/>
+
+              <!-- example 1: text your partner -->
+              <g id="out-phone" opacity="0">
+                <rect x="338" y="104" width="104" height="196" rx="22" fill="#0e0e13" stroke="#2d2d37" stroke-width="2"/>
+                <rect x="346" y="122" width="88" height="160" rx="14" fill="#07070a"/>
+                <rect x="372" y="113" width="36" height="6" rx="3" fill="#1b1b22"/>
+                <rect x="352" y="150" width="76" height="58" rx="12" fill="#15151c" stroke="#322a40" stroke-width="1.5"/>
+                <circle cx="369" cy="168" r="9" fill="#A855F7"/>
+                <path d="M369 172 l-4.2 -4 a2.7 2.7 0 0 1 4.2 -3.2 a2.7 2.7 0 0 1 4.2 3.2 z" fill="#fff"/>
+                <rect x="383" y="164" width="36" height="5" rx="2.5" fill="#5a5a66"/>
+                <text x="361" y="195" fill="#f4f4f6" font-family="Inter, sans-serif" font-size="12" font-weight="700">I miss you</text>
+              </g>
+
+              <!-- example 2: bedroom lights -->
+              <g id="out-lamp" opacity="0">
+                <circle id="lamp-glow" cx="390" cy="168" r="48" fill="#E5FF00" opacity="0" filter="url(#soft)"/>
+                <g id="lamp-rays" opacity="0" stroke="#E5FF00" stroke-width="3" stroke-linecap="round">
+                  <line x1="390" y1="120" x2="390" y2="106"/>
+                  <line x1="424" y1="134" x2="434" y2="124"/>
+                  <line x1="356" y1="134" x2="346" y2="124"/>
+                  <line x1="438" y1="168" x2="452" y2="168"/>
+                  <line x1="342" y1="168" x2="328" y2="168"/>
+                </g>
+                <circle cx="390" cy="168" r="30" fill="#1a1a14" stroke="#3a3a30" stroke-width="2"/>
+                <circle id="bulb" cx="390" cy="168" r="26" fill="#2a2a1c"/>
+                <path d="M381 174 q9 -18 18 0" fill="none" stroke="#6a6a4a" stroke-width="2"/>
+                <rect x="378" y="194" width="24" height="14" rx="3" fill="#23232a"/>
+                <rect x="380" y="206" width="20" height="9" rx="3" fill="#2c2c34"/>
+                <text x="390" y="246" text-anchor="middle" fill="#9aa0aa" font-family="Inter, sans-serif" font-size="13" font-weight="600">bedroom · on</text>
+              </g>
+
+              <!-- example 3: just for fun / fidget -->
+              <g id="out-fidget" opacity="0">
+                <g id="fidget-spark">
+                  <path d="M360 148 l4 10 10 4 -10 4 -4 10 -4 -10 -10 -4 10 -4 z" fill="#E5FF00"/>
+                  <path d="M414 136 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#A855F7"/>
+                  <path d="M420 184 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3 z" fill="#1E90FF"/>
+                  <path d="M356 190 l2.6 6 6 2.6 -6 2.6 -2.6 6 -2.6 -6 -6 -2.6 6 -2.6 z" fill="#3ddc84"/>
+                </g>
+                <text x="388" y="232" text-anchor="middle" fill="#9aa0aa" font-family="Inter, sans-serif" font-size="13" font-weight="600">just for fun</text>
+              </g>
+
+              <!-- example 4: soundboard boom -->
+              <g id="out-speaker" opacity="0">
+                <rect x="356" y="126" width="72" height="120" rx="14" fill="#0e0e13" stroke="#2d2d37" stroke-width="2"/>
+                <circle cx="392" cy="170" r="26" fill="#07070a" stroke="#2d2d37" stroke-width="2"/>
+                <circle cx="392" cy="170" r="14" fill="#1a1a20" stroke="#3a3a44" stroke-width="2"/>
+                <circle cx="392" cy="170" r="5" fill="#2c2c36"/>
+                <circle cx="392" cy="214" r="8" fill="#07070a" stroke="#2d2d37" stroke-width="2"/>
+                <g id="sound-waves" stroke="#1E90FF" stroke-width="3" fill="none" stroke-linecap="round" opacity="0">
+                  <path d="M344 158 q-12 12 0 24"/>
+                  <path d="M332 148 q-22 22 0 44"/>
+                  <path d="M320 138 q-32 32 0 64"/>
+                </g>
+                <text id="boom-text" x="316" y="120" text-anchor="middle" fill="#1E90FF" font-family="Inter, sans-serif" font-size="26" font-weight="900" opacity="0">BOOM</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="how__copy">
+            <span class="eyebrow"><span class="eyebrow__dot"></span> How it works</span>
+            <h2 class="how__title">One heart, <span class="grad-text">infinite clicks.</span></h2>
+            <ol class="how__steps">
+              <li class="how-step is-active" data-step="0">
+                <span class="how-step__num">01</span>
+                <div><h3>The build</h3><p>A heart-shaped button, custom PCB and weighted base click together into one tactile little unit.</p></div>
+              </li>
+              <li class="how-step" data-step="1">
+                <span class="how-step__num">02</span>
+                <div><h3>Click → text your partner</h3><p>One press fires a routine that pings their phone with a quiet <em>"I miss you."</em></p></div>
+              </li>
+              <li class="how-step" data-step="2">
+                <span class="how-step__num">03</span>
+                <div><h3>Click → lights on</h3><p>Reprogram the same click to flip your bedroom lights on the moment you walk in.</p></div>
+              </li>
+              <li class="how-step" data-step="3">
+                <span class="how-step__num">04</span>
+                <div><h3>Click → just for fun</h3><p>Or program nothing at all. Sometimes the perfect, satisfying fidget click is the whole point.</p></div>
+              </li>
+              <li class="how-step" data-step="4">
+                <span class="how-step__num">05</span>
+                <div><h3>Click → soundboard</h3><p>Map it to your soundboard and drop a <em>"Boom"</em> through any connected speaker.</p></div>
+              </li>
+            </ol>
+            <div class="how__progress"><span id="howBar"></span></div>
+            <p class="how__hint">Keep scrolling to run the sequence</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Support / CTA ===== -->
+    <section class="support" id="support">
+      <h2>Designed in studio. Backed for life.</h2>
+      <p>Two-year warranty, lifetime firmware updates, and humans who answer.</p>
+      <div class="support__cta">
+        <a href="#" class="btn btn--primary">Contact support</a>
+        <a href="#" class="btn btn--ghost">Read the docs</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="brand">
+        <span class="brand__mark"><svg viewBox="0 0 32 32" width="24" height="24"><rect x="5" y="5" width="22" height="22" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="5" fill="currentColor"/></svg></span>
+        <span class="brand__name">Stamp</span>
+      </div>
+      <nav class="footer__cols">
+        <div><h4>Shop</h4><a href="#">Clickers</a><a href="#">Accessories</a><a href="#">Bundles</a></div>
+        <div><h4>Company</h4><a href="#">About</a><a href="#">Studio</a><a href="#">Press</a></div>
+        <div><h4>Support</h4><a href="#">Help center</a><a href="#">Warranty</a><a href="#">Contact</a></div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Stamp Hardware. All rights reserved.</span>
+      <span>Program it to do anything.</span>
+    </div>
+  </footer>
+
+  <!-- ===== Floating bottom bar with ticker ===== -->
+  <div class="dock" id="dock">
+    <div class="dock__lead">
+      <span class="dock__pulse"></span>
+      <strong>Explore our best sellers</strong>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <div class="ticker__track">
+        <span>Coffee Clickers</span><span class="dot">●</span>
+        <span>Mushroom Series</span><span class="dot">●</span>
+        <span>Pocket Pebbles</span><span class="dot">●</span>
+        <span>Rotary Dials</span><span class="dot">●</span>
+        <span>Neon Caps</span><span class="dot">●</span>
+        <span>Halo Docks</span><span class="dot">●</span>
+        <!-- duplicate for seamless loop -->
+        <span>Coffee Clickers</span><span class="dot">●</span>
+        <span>Mushroom Series</span><span class="dot">●</span>
+        <span>Pocket Pebbles</span><span class="dot">●</span>
+        <span>Rotary Dials</span><span class="dot">●</span>
+        <span>Neon Caps</span><span class="dot">●</span>
+        <span>Halo Docks</span><span class="dot">●</span>
+      </div>
+    </div>
+    <a href="#products" class="btn btn--primary dock__btn">Shop now</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
