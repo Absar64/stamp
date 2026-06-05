@@ -40,17 +40,7 @@ document.querySelectorAll('#cvFinish .cv-swatch').forEach(sw => {
   });
 });
 
-// ===== Pack picker: update the headline price =====
-const priceEl = document.getElementById('cvPrice');
-const saveEl = document.getElementById('cvSave');
-document.querySelectorAll('#cvPack .cv-pack').forEach(p => {
-  p.addEventListener('click', () => {
-    document.querySelectorAll('#cvPack .cv-pack').forEach(x => x.classList.remove('is-active'));
-    p.classList.add('is-active');
-    priceEl.textContent = '£' + p.dataset.price;
-    saveEl.textContent = p.dataset.save;
-  });
-});
+// currency + live pricing are handled globally in store.js
 
 // ===== Live demo: pick a friend + a moment, watch it land =====
 (function initDemo() {

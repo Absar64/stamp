@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="clicker.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="clicker.css?v=2" />
   <script async src="https://js.stripe.com/v3/buy-button.js"></script>
 </head>
 <body class="ck-page">
@@ -29,10 +29,13 @@
         <a href="index.html#support" class="nav__link" data-accent="yellow">Support</a>
       </nav>
       <div class="nav__actions">
-        <button class="icon-btn cart" aria-label="Cart">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
-          <span class="cart__count">2</span>
-        </button>
+        <select class="currency-select" id="currencySelect" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AUD">A$ AUD</option>
+          <option value="CAD">C$ CAD</option>
+        </select>
         <button class="nav__toggle" id="navToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -53,6 +56,8 @@
         <!-- gallery / the "image" -->
         <div class="ck-stage ck-in" style="--d:.05">
           <div class="ck-stage__ring"></div>
+          <!-- drop assets/heart.png in to replace the mockup; it hides itself if missing -->
+          <img class="ck-photo" src="assets/heart.png" alt="Heart Box Clicker" onerror="this.remove()" />
           <div class="ck-device" id="ckDevice">
             <div class="ck-device__box">
               <div class="ck-device__face">
@@ -83,45 +88,33 @@
           </p>
 
           <div class="ck-info__priceRow ck-in" style="--d:.2">
-            <span class="ck-info__price" id="ckPrice">£89</span>
-            <span class="ck-info__was">£109</span>
-            <span class="ck-info__save" id="ckSave">Save £20</span>
+            <span class="ck-info__price" id="ckPrice" data-price="clicker">$89</span>
+            <span class="ck-info__was" data-was="clicker">$109</span>
+            <span class="ck-info__save" id="ckSave" data-save="clicker">Save $20</span>
           </div>
 
-          <!-- finish picker -->
-          <div class="ck-opt ck-in" style="--d:.24">
-            <span class="ck-opt__label">Finish — <em id="ckFinishName">Lemon</em></span>
-            <div class="ck-swatches" id="ckFinish">
-              <button class="ck-swatch is-active" type="button" data-name="Lemon" data-accent="#c9e000" style="--s:linear-gradient(135deg,#E5FF00,#00A3FF)" aria-label="Lemon finish"></button>
-              <button class="ck-swatch" type="button" data-name="Blush" data-accent="#ff5d8f" style="--s:linear-gradient(135deg,#ff8fb3,#ff4d6d)" aria-label="Blush finish"></button>
-              <button class="ck-swatch" type="button" data-name="Onyx" data-accent="#5b6472" style="--s:linear-gradient(135deg,#3a4150,#11151c)" aria-label="Onyx finish"></button>
-              <button class="ck-swatch" type="button" data-name="Sky" data-accent="#00a3ff" style="--s:linear-gradient(135deg,#1e90ff,#00d4ff)" aria-label="Sky finish"></button>
-            </div>
-          </div>
-
-          <!-- pack picker -->
-          <div class="ck-opt ck-in" style="--d:.28">
-            <span class="ck-opt__label">Pack</span>
-            <div class="ck-packs" id="ckPack">
-              <button class="ck-pack is-active" type="button" data-price="89" data-save="Save £20"><strong>Single</strong><span>1 Heart Box</span></button>
-              <button class="ck-pack" type="button" data-price="169" data-save="Save £49"><strong>Pair</strong><span>2 · his &amp; hers</span></button>
-              <button class="ck-pack" type="button" data-price="249" data-save="Save £78"><strong>Trio</strong><span>3 · the set</span></button>
-            </div>
+          <!-- pre-order status -->
+          <div class="preorder ck-in" style="--d:.24">
+            <span class="preorder__badge">Pre-order only</span>
+            <p class="preorder__line"><strong><span data-claimed="clicker">125</span>/<span data-goal="clicker">1000</span></strong> claimed · <strong data-sold="clicker">0</strong> sold · Production delivery estimated: <strong>Early August</strong></p>
           </div>
 
           <ul class="ck-info__perks ck-in" style="--d:.32">
             <li><span class="ck-tick">✦</span> <strong>3 programmable buttons</strong> — each does anything you map</li>
             <li><span class="ck-tick">✦</span> Built-in speaker for sounds &amp; soundboards</li>
             <li><span class="ck-tick">✦</span> Or just <strong>fidget</strong> — no action, pure tactile clicking</li>
-            <li><span class="ck-tick">✦</span> Up to <strong>2 weeks</strong> battery · USB-C recharge</li>
+            <li><span class="ck-tick">✦</span> For <strong>couples</strong> · stay connected even when busy</li>
           </ul>
 
           <!-- stripe buy button -->
           <div class="ck-buy ck-in" style="--d:.36">
-            <stripe-buy-button
-              buy-button-id="buy_btn_1TeDSmIcuF9dyPkIt0U900ku"
-              publishable-key="pk_test_51P7N7HIcuF9dyPkISv27ZMHemof5fQQoWdxIL7Xzj5d48J48QDR7q1RATCtDblDpLIwZ99lxFDuLQinIKL2G30V000lAitt8Iu">
-            </stripe-buy-button>
+            <div class="pay-stack" style="width:max-content;max-width:100%;margin-inline:0">
+              <stripe-buy-button
+                buy-button-id="buy_btn_1TehbuIcuF9dyPkIU6sJXTyW"
+                publishable-key="pk_live_51P7N7HIcuF9dyPkIU2zkX9yyOVNITUzNeVZTCiHvPTQAn2f6hyDtSQOTD5Gdr9BzOFxTX2do5cGZEWcdTVy0hXxp00UqchO5Mc">
+              </stripe-buy-button>
+              <img class="pay-cards" src="assets/cards.png" alt="Accepted payment methods" style="display:block;width:60%;height:auto;margin:10px 0 0" />
+            </div>
             <p class="ck-buy__note">Free shipping · 30-day returns · 2-year warranty</p>
           </div>
         </div>
@@ -220,6 +213,72 @@
       </div>
     </section>
 
+    <!-- ===== For couples: clicker → phone notifications ===== -->
+    <section class="ck-couples">
+      <div class="section-head ck-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> For couples</span>
+          <h2 class="section-head__title">A press they feel <span class="grad-text">across any distance</span></h2>
+          <p class="section-head__sub">Map each button to a little message. Press one — it lands on their phone in an instant.</p>
+        </div>
+      </div>
+
+      <div class="ck-couples__panel ck-reveal">
+        <!-- the clicker — drawn in SVG, the three keys are clickable -->
+        <div class="ck-couples__device">
+          <svg class="ck-couples__clicker" viewBox="0 0 240 300" role="img" aria-label="Heart Box clicker with three buttons">
+            <defs>
+              <linearGradient id="ckBodyG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c2c38"/><stop offset="1" stop-color="#141419"/></linearGradient>
+              <radialGradient id="ckHeartG" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#ff9ec4"/><stop offset="1" stop-color="#ff4d7e"/></radialGradient>
+              <radialGradient id="ckKeyA" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#fff59e"/><stop offset="1" stop-color="#E5FF00"/></radialGradient>
+              <radialGradient id="ckKeyB" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#bfe9ff"/><stop offset="1" stop-color="#00A3FF"/></radialGradient>
+              <radialGradient id="ckKeyC" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#ffc9dd"/><stop offset="1" stop-color="#ff5d8f"/></radialGradient>
+            </defs>
+            <!-- body -->
+            <rect x="18" y="12" width="204" height="276" rx="40" fill="url(#ckBodyG)" stroke="#3a3a46" stroke-width="2"/>
+            <rect x="18" y="12" width="204" height="120" rx="40" fill="#ffffff" opacity=".04"/>
+            <!-- heart emblem -->
+            <path d="M120 50 C 112 38 94 38 94 56 C 94 72 114 84 120 90 C 126 84 146 72 146 56 C 146 38 128 38 120 50 Z" fill="url(#ckHeartG)"/>
+            <!-- speaker grille -->
+            <g fill="#454553"><circle cx="100" cy="110" r="2.6"/><circle cx="110" cy="110" r="2.6"/><circle cx="120" cy="110" r="2.6"/><circle cx="130" cy="110" r="2.6"/><circle cx="140" cy="110" r="2.6"/></g>
+            <!-- three clickable keys -->
+            <g class="ck-couples__btn" data-msg="I miss you" role="button" tabindex="0" aria-label="Send: I miss you">
+              <circle class="ck-couples__keybg" cx="120" cy="150" r="29" fill="url(#ckKeyA)"/>
+              <ellipse cx="112" cy="143" rx="12" ry="7" fill="#fff" opacity=".4"/>
+              <text class="ck-couples__keynum" x="120" y="158" text-anchor="middle">1</text>
+            </g>
+            <g class="ck-couples__btn" data-msg="Just thought about you" role="button" tabindex="0" aria-label="Send: Just thought about you">
+              <circle class="ck-couples__keybg" cx="120" cy="203" r="29" fill="url(#ckKeyB)"/>
+              <ellipse cx="112" cy="196" rx="12" ry="7" fill="#fff" opacity=".4"/>
+              <text class="ck-couples__keynum" x="120" y="211" text-anchor="middle">2</text>
+            </g>
+            <g class="ck-couples__btn" data-msg="💕" role="button" tabindex="0" aria-label="Send: heart">
+              <circle class="ck-couples__keybg" cx="120" cy="256" r="29" fill="url(#ckKeyC)"/>
+              <ellipse cx="112" cy="249" rx="12" ry="7" fill="#fff" opacity=".4"/>
+              <text class="ck-couples__keynum" x="120" y="264" text-anchor="middle">3</text>
+            </g>
+          </svg>
+          <ul class="ck-couples__legend">
+            <li><span class="ck-couples__dot" style="--c:#E5FF00">1</span> "I miss you"</li>
+            <li><span class="ck-couples__dot" style="--c:#00A3FF">2</span> "Just thought about you"</li>
+            <li><span class="ck-couples__dot" style="--c:#ff5d8f">3</span> Send a 💕</li>
+          </ul>
+        </div>
+
+        <!-- their phone -->
+        <div class="ck-phone" aria-label="Their phone">
+          <div class="ck-phone__notch"></div>
+          <div class="ck-phone__screen">
+            <div class="ck-phone__top"><span>9:41</span><span>5G ▮▮▮</span></div>
+            <div class="ck-phone__clock"><strong>9:41</strong><span>Today</span></div>
+            <div class="ck-phone__notifs" id="ckPhoneNotifs">
+              <p class="ck-phone__hint" id="ckPhoneHint">Press a button to send →</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Fidget mode: pure tactile clicking, no action ===== -->
     <section class="ck-fidget">
       <div class="ck-fidget__glow"></div>
@@ -302,8 +361,8 @@
         <div class="ck-spec"><span>Speaker</span><strong>Built-in 1 W</strong></div>
         <div class="ck-spec"><span>Battery</span><strong>Up to 2 weeks</strong></div>
         <div class="ck-spec"><span>Power</span><strong>USB-C rechargeable</strong></div>
-        <div class="ck-spec"><span>Connectivity</span><strong>Bluetooth LE</strong></div>
-        <div class="ck-spec"><span>Body</span><strong>Anodised aluminium</strong></div>
+        <div class="ck-spec"><span>Connectivity</span><strong>WiFi & Bluetooth LE</strong></div>
+        <div class="ck-spec"><span>Body</span><strong>Brushed acrylic</strong></div>
         <div class="ck-spec"><span>Mapping</span><strong>Stamp app · no-code</strong></div>
         <div class="ck-spec"><span>In the box</span><strong>Heart Box · USB-C cable</strong></div>
         <div class="ck-spec"><span>App</span><strong>iOS &amp; Android</strong></div>
@@ -325,7 +384,7 @@
         </details>
         <details class="ck-faq__item ck-reveal">
           <summary>Can it play custom sounds?<span class="ck-faq__plus"></span></summary>
-          <p>Yes. The built-in speaker plays from a soundboard, and you can upload your own clips — a "Boom", an air-horn, a voice note, whatever you like.</p>
+          <p>Yes. The built-in speaker can play anything you map it to, and you can upload your own sounds —  use it as a soundboard even.</p>
         </details>
         <details class="ck-faq__item ck-reveal">
           <summary>How long does the battery last?<span class="ck-faq__plus"></span></summary>
@@ -341,7 +400,7 @@
         </details>
         <details class="ck-faq__item ck-reveal">
           <summary>Returns and warranty?<span class="ck-faq__plus"></span></summary>
-          <p>30-day no-questions returns and a 2-year hardware warranty, backed by humans who actually answer.</p>
+          <p>30-day no-questions returns and a 1-year hardware warranty, backed by humans who actually answer.</p>
         </details>
       </div>
     </section>
@@ -352,7 +411,7 @@
         <h2>Put a click on everything you love.</h2>
         <p>Map it in minutes. Re-map it forever.</p>
         <div class="ck-cta__row">
-          <a href="#" class="btn btn--clicker-solid">Buy Heart Box — £89</a>
+          <a href="#" class="btn btn--clicker-solid">Buy Heart Box — <span data-price="clicker">$89</span></a>
           <a href="index.html#configurator" class="btn btn--ghost">See the live room demo</a>
         </div>
       </div>
@@ -378,7 +437,8 @@
     </div>
   </footer>
 
-  <script src="clicker.js"></script>
+  <script src="clicker.js?v=2"></script>
+  <script type="module" src="store.js"></script>
 
   <!-- tawk.to live chat -->
   <script type="text/javascript">

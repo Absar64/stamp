@@ -29,10 +29,13 @@
         <a href="index.html#support" class="nav__link" data-accent="yellow">Support</a>
       </nav>
       <div class="nav__actions">
-        <button class="icon-btn cart" aria-label="Cart">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
-          <span class="cart__count">2</span>
-        </button>
+        <select class="currency-select" id="currencySelect" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AUD">A$ AUD</option>
+          <option value="CAD">C$ CAD</option>
+        </select>
         <button class="nav__toggle" id="navToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -53,6 +56,8 @@
         <!-- gallery / the "image" -->
         <div class="cv-stage cv-in" style="--d:.05">
           <div class="cv-stage__ring"></div>
+          <!-- drop assets/canvas.png in to replace the mockup; it hides itself if missing -->
+          <img class="cv-photo" src="assets/canvas.png" alt="Canvas" onerror="this.remove()" />
           <div class="cv-device" id="cvDevice">
             <div class="cv-device__frame">
               <div class="cv-device__screen">
@@ -71,7 +76,7 @@
         <div class="cv-info">
           <div class="cv-info__rating cv-in" style="--d:.08">
             <span class="cv-stars">★★★★★</span>
-            <span>4.9 · 320 reviews</span>
+            <span>4.9</span>
           </div>
           <h1 class="cv-info__name cv-in" style="--d:.12">Canvas</h1>
           <p class="cv-info__tagline cv-in" style="--d:.16">
@@ -80,45 +85,33 @@
           </p>
 
           <div class="cv-info__priceRow cv-in" style="--d:.2">
-            <span class="cv-info__price" id="cvPrice">£129</span>
-            <span class="cv-info__was">£159</span>
-            <span class="cv-info__save" id="cvSave">Save £30</span>
+            <span class="cv-info__price" id="cvPrice" data-price="canvas">$129</span>
+            <span class="cv-info__was" data-was="canvas">$159</span>
+            <span class="cv-info__save" id="cvSave" data-save="canvas">Save $30</span>
           </div>
 
-          <!-- finish picker -->
-          <div class="cv-opt cv-in" style="--d:.24">
-            <span class="cv-opt__label">Finish — <em id="cvFinishName">Aurora</em></span>
-            <div class="cv-swatches" id="cvFinish">
-              <button class="cv-swatch is-active" type="button" data-name="Aurora"  data-accent="#c026d3" style="--s:linear-gradient(135deg,#a855f7,#ec4899)" aria-label="Aurora finish"></button>
-              <button class="cv-swatch" type="button" data-name="Midnight" data-accent="#3b82f6" style="--s:linear-gradient(135deg,#334155,#0f172a)" aria-label="Midnight finish"></button>
-              <button class="cv-swatch" type="button" data-name="Sky"      data-accent="#00a3ff" style="--s:linear-gradient(135deg,#1e90ff,#00a3ff)" aria-label="Sky finish"></button>
-              <button class="cv-swatch" type="button" data-name="Sand"     data-accent="#caa06a" style="--s:linear-gradient(135deg,#e7c9a0,#caa06a)" aria-label="Sand finish"></button>
-            </div>
-          </div>
-
-          <!-- pack picker -->
-          <div class="cv-opt cv-in" style="--d:.28">
-            <span class="cv-opt__label">Pack</span>
-            <div class="cv-packs" id="cvPack">
-              <button class="cv-pack is-active" type="button" data-price="129" data-save="Save £30"><strong>Single</strong><span>1 Canvas</span></button>
-              <button class="cv-pack" type="button" data-price="239" data-save="Save £49"><strong>Pair</strong><span>2 · for two</span></button>
-              <button class="cv-pack" type="button" data-price="449" data-save="Save £87"><strong>Squad</strong><span>4 · for the group</span></button>
-            </div>
+          <!-- pre-order status -->
+          <div class="preorder cv-in" style="--d:.24">
+            <span class="preorder__badge">Pre-order only</span>
+            <p class="preorder__line"><strong><span data-claimed="canvas">153</span>/<span data-goal="canvas">1000</span></strong> claimed · <strong data-sold="canvas">0</strong> sold · Production delivery estimated: <strong>late August</strong></p>
           </div>
 
           <ul class="cv-info__perks cv-in" style="--d:.32">
             <li><span class="cv-tick">✦</span> Connect an <strong>unlimited</strong> number of friends & family</li>
             <li><span class="cv-tick">✦</span> Instant delivery over Wi-Fi — no subscription</li>
-            <li><span class="cv-tick">✦</span> Glows softly the moment something arrives</li>
+            <li><span class="cv-tick">✦</span> Send images, videos, voice-notes</li>
           </ul>
 
           <!-- stripe buy button -->
           <div class="cv-buy cv-in" style="--d:.36">
-            <stripe-buy-button
-              buy-button-id="buy_btn_1TeDSmIcuF9dyPkIt0U900ku"
-              publishable-key="pk_test_51P7N7HIcuF9dyPkISv27ZMHemof5fQQoWdxIL7Xzj5d48J48QDR7q1RATCtDblDpLIwZ99lxFDuLQinIKL2G30V000lAitt8Iu">
-            </stripe-buy-button>
-            <p class="cv-buy__note">Free shipping · 30-day returns · 2-year warranty</p>
+            <div class="pay-stack" style="width:max-content;max-width:100%;margin-inline:0">
+              <stripe-buy-button
+                buy-button-id="buy_btn_1TehuHIcuF9dyPkILRtD3yhK"
+                publishable-key="pk_live_51P7N7HIcuF9dyPkIU2zkX9yyOVNITUzNeVZTCiHvPTQAn2f6hyDtSQOTD5Gdr9BzOFxTX2do5cGZEWcdTVy0hXxp00UqchO5Mc">
+              </stripe-buy-button>
+              <img class="pay-cards" src="assets/cards.png" alt="Accepted payment methods" style="display:block;width:60%;height:auto;margin:10px 0 0" />
+            </div>
+            <p class="cv-buy__note">Free shipping · 30-day returns · 1-year warranty</p>
           </div>
         </div>
       </div>
@@ -129,7 +122,7 @@
       <div class="cv-strip__item cv-reveal"><strong>Unlimited</strong><span>friends per Canvas</span></div>
       <div class="cv-strip__item cv-reveal"><strong>&lt; 1s</strong><span>to deliver a letter</span></div>
       <div class="cv-strip__item cv-reveal"><strong>12 hr</strong><span>battery, USB-C</span></div>
-      <div class="cv-strip__item cv-reveal"><strong>£0</strong><span>monthly fees, forever</span></div>
+      <div class="cv-strip__item cv-reveal"><strong>$0</strong><span>monthly fees, forever</span></div>
     </section>
 
     <!-- ===== How it works ===== -->
@@ -278,14 +271,14 @@
         </div>
       </div>
       <div class="cv-specs__grid cv-reveal">
-        <div class="cv-spec"><span>Display</span><strong>5.5" matte, 720 × 720</strong></div>
+        <div class="cv-spec"><span>Display</span><strong>To be confirmed</strong></div>
         <div class="cv-spec"><span>Connectivity</span><strong>Wi-Fi 2.4 / 5 GHz</strong></div>
         <div class="cv-spec"><span>Friends</span><strong>Unlimited</strong></div>
         <div class="cv-spec"><span>Power</span><strong>USB-C · 12-hr battery</strong></div>
-        <div class="cv-spec"><span>Frame</span><strong>CNC aluminium</strong></div>
-        <div class="cv-spec"><span>Alert</span><strong>Soft-glow LED ring</strong></div>
+        <div class="cv-spec"><span>Frame</span><strong>To be confirmed</strong></div>
+        <div class="cv-spec"><span>Alert</span><strong>To be confirmed</strong></div>
         <div class="cv-spec"><span>In the box</span><strong>Canvas · cable · stand</strong></div>
-        <div class="cv-spec"><span>Dimensions</span><strong>110 × 110 × 18 mm</strong></div>
+        <div class="cv-spec"><span>Dimensions</span><strong>To be confirmed</strong></div>
         <div class="cv-spec"><span>App</span><strong>iOS &amp; Android</strong></div>
       </div>
     </section>
@@ -321,7 +314,7 @@
         </details>
         <details class="cv-faq__item cv-reveal">
           <summary>Returns and warranty?<span class="cv-faq__plus"></span></summary>
-          <p>30-day no-questions returns and a 2-year hardware warranty, backed by humans who actually answer.</p>
+          <p>30-day no-questions returns and a 1-year hardware warranty, backed by humans who actually answer.</p>
         </details>
       </div>
     </section>
@@ -332,7 +325,7 @@
         <h2>Put a little love on their desk.</h2>
         <p>Order today and start sending the moment it's paired.</p>
         <div class="cv-cta__row">
-          <a href="#" class="btn btn--canvas-solid">Buy Canvas — £129</a>
+          <a href="#" class="btn btn--canvas-solid">Buy Canvas — <span data-price="canvas">$129</span></a>
           <a href="index.html#letterbox" class="btn btn--ghost">See the two-way demo</a>
         </div>
       </div>
@@ -359,6 +352,7 @@
   </footer>
 
   <script src="canvas.js"></script>
+  <script type="module" src="store.js"></script>
 
   <!-- tawk.to live chat -->
   <script type="text/javascript">

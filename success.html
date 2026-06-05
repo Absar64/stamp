@@ -54,12 +54,7 @@
 
       <span class="ok__eyebrow">Payment successful</span>
       <h1 class="ok__title">Your order is <span class="grad-text">confirmed.</span></h1>
-      <p class="ok__lead">Thank you — we've got it from here. A confirmation and receipt are on their way to your inbox.</p>
-
-      <div class="ok__order">
-        <span>Order reference</span>
-        <strong id="okRef">STM-•••••</strong>
-      </div>
+      <p class="ok__lead">Thank you — we've got it from here. A confirmation email is on its way to your inbox.</p>
 
       <ul class="ok__next">
         <li>
@@ -68,7 +63,7 @@
         </li>
         <li>
           <span class="ok__ico">📦</span>
-          <div><strong>Packed in studio</strong><p>We'll hand-pack your order within 1–2 business days.</p></div>
+          <div><strong>Packed in studio</strong><p>Please remember this is a preorder! Delivery may take a while.</p></div>
         </li>
         <li>
           <span class="ok__ico">🚚</span>
@@ -92,16 +87,6 @@
       <span>Stay connected.</span>
     </div>
   </footer>
-
-  <script>
-    // friendly, non-identifying order reference for display only
-    (function () {
-      const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ0123456789';
-      let ref = '';
-      for (let i = 0; i < 6; i++) ref += chars[Math.floor(Math.random() * chars.length)];
-      document.getElementById('okRef').textContent = 'STM-' + ref;
-    })();
-  </script>
 
   <!-- tawk.to live chat -->
   <script type="text/javascript">

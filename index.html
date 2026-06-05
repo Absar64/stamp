@@ -23,17 +23,19 @@
       <nav class="nav__links" aria-label="Primary">
         <a href="#home" class="nav__link is-active" data-accent="yellow">Home</a>
         <a href="#products" class="nav__link" data-accent="blue">Products</a>
-        <a href="#accessories" class="nav__link" data-accent="purple">Accessories</a>
         <a href="#support" class="nav__link" data-accent="yellow">Support</a>
       </nav>
       <div class="nav__actions">
         <button class="icon-btn" aria-label="Search">
           <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3-3"/></svg>
         </button>
-        <button class="icon-btn cart" aria-label="Cart">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/><path d="M6 6 5 3H2"/></svg>
-          <span class="cart__count">2</span>
-        </button>
+        <select class="currency-select" id="currencySelect" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AUD">A$ AUD</option>
+          <option value="CAD">C$ CAD</option>
+        </select>
         <button class="nav__toggle" id="navToggle" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -149,41 +151,19 @@
       </div>
     </section>
 
-    <!-- ===== Possibilities band ===== -->
-    <section class="band" id="possibilities">
-      <h2 class="band__title">A single click. <span class="grad-text">Endless possibilities.</span></h2>
-      <div class="band__grid">
-        <article class="poss">
-          <span class="poss__icon" style="--c:var(--yellow)">💡</span>
-          <h3>Turn the lights on</h3>
-          <p>Wake your bedroom, studio, or stream setup the instant you press down.</p>
-        </article>
-        <article class="poss">
-          <span class="poss__icon" style="--c:var(--purple)">💌</span>
-          <h3>Let your partner know you miss them</h3>
-          <p>One tap fires off a text, a heart, or a tiny ritual only the two of you share.</p>
-        </article>
-        <article class="poss">
-          <span class="poss__icon" style="--c:var(--blue)">⚡</span>
-          <h3>Run an entire routine</h3>
-          <p>Chain dozens of actions — apps, lights, messages, macros — into one click.</p>
-        </article>
-      </div>
-    </section>
-
     <!-- ===== Product grid ===== -->
     <section class="catalog" id="products">
       <div class="section-head">
         <div>
           <span class="eyebrow"><span class="eyebrow__dot"></span> The collection</span>
-          <h2 class="section-head__title">Hardware</h2>
+          <h2 class="section-head__title">Products</h2>
         </div>
         <a href="#" class="link-arrow">View all <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
       </div>
 
-      <div class="grid" id="productGrid">
-        <!-- Card: Canvas (featured, full width) -->
-        <article class="card card--feature">
+      <div class="grid grid--duo" id="productGrid">
+        <!-- Card: Canvas -->
+        <article class="card">
           <div class="card__media card__media--canvas">
             <span class="tag tag--canvas">New · Canvas</span>
             <div class="card-canvas">
@@ -194,7 +174,7 @@
             <span class="duo__kicker" style="--c:var(--purple)">The Canvas</span>
             <div class="card__row">
               <h3 class="card__name">Canvas — paired screens</h3>
-              <span class="card__price">$129</span>
+              <span class="card__price" data-price="canvas">$129</span>
             </div>
             <p class="card__desc">A little screen for each of you. Tap an image, photo, or doodle and it lands on their desk the moment you send it.</p>
             <ul class="card__points">
@@ -215,98 +195,24 @@
           <div class="card__body">
             <div class="card__row">
               <h3 class="card__name">Heart Box Clicker</h3>
-              <span class="card__price">$89</span>
+              <span class="card__price" data-price="clicker">$89</span>
             </div>
             <p class="card__desc">Three programmable buttons with a built-in speaker. Click to do anything.</p>
             <a href="clicker.html" class="btn btn--card btn--clicker">Explore the Heart Box <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
           </div>
         </article>
-
-        <!-- Card: Mushroom -->
-        <article class="card">
-          <div class="card__media">
-            <span class="tag tag--purple">Clicker</span>
-            <!-- replace assets/product-shiitake.png with a real product photo -->
-            <img class="art" src="assets/product-shiitake.png" alt="Shiitake mushroom clicker" />
-          </div>
-          <div class="card__body">
-            <div class="card__row">
-              <h3 class="card__name">Shiitake</h3>
-              <span class="card__price">$79</span>
-            </div>
-            <p class="card__desc">Mushroom clicker. Soft-touch cap, satisfying travel.</p>
-            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
-          </div>
-        </article>
-
-        <!-- Card: Pebble -->
-        <article class="card">
-          <div class="card__media">
-            <span class="tag tag--blue">Clicker</span>
-            <!-- replace assets/product-skipping-stone.png with a real product photo -->
-            <img class="art" src="assets/product-skipping-stone.png" alt="Skipping Stone pebble clicker" />
-          </div>
-          <div class="card__body">
-            <div class="card__row">
-              <h3 class="card__name">Skipping Stone</h3>
-              <span class="card__price">$69</span>
-            </div>
-            <p class="card__desc">Pocket pebble clicker. Anodized aluminium shell.</p>
-            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
-          </div>
-        </article>
-
-        <!-- Card: Knob accessory -->
-        <article class="card" id="accessories">
-          <div class="card__media">
-            <span class="tag tag--green">Accessory</span>
-            <!-- replace assets/product-dial.png with a real product photo -->
-            <img class="art" src="assets/product-dial.png" alt="Dial No.4 rotary knob" />
-          </div>
-          <div class="card__body">
-            <div class="card__row">
-              <h3 class="card__name">Dial No.4</h3>
-              <span class="card__price">$59</span>
-            </div>
-            <p class="card__desc">Rotary knob accessory. Scroll, scrub, and dim.</p>
-            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
-          </div>
-        </article>
-
-        <!-- Card: Keycap set -->
-        <article class="card">
-          <div class="card__media">
-            <span class="tag tag--green">Accessory</span>
-            <!-- replace assets/product-neon-caps.png with a real product photo -->
-            <img class="art" src="assets/product-neon-caps.png" alt="Neon Caps keycap set" />
-          </div>
-          <div class="card__body">
-            <div class="card__row">
-              <h3 class="card__name">Neon Caps</h3>
-              <span class="card__price">$34</span>
-            </div>
-            <p class="card__desc">Swap-on caps. Three saturated colourways.</p>
-            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
-          </div>
-        </article>
-
-        <!-- Card: Dock -->
-        <article class="card">
-          <div class="card__media">
-            <span class="tag tag--green">Accessory</span>
-            <!-- replace assets/product-halo-dock.png with a real product photo -->
-            <img class="art" src="assets/product-halo-dock.png" alt="Halo Dock charging dock" />
-          </div>
-          <div class="card__body">
-            <div class="card__row">
-              <h3 class="card__name">Halo Dock</h3>
-              <span class="card__price">$49</span>
-            </div>
-            <p class="card__desc">Wireless charging dock with ambient glow ring.</p>
-            <button class="btn btn--card">Explore <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
-          </div>
-        </article>
       </div>
+
+      <!-- launch into the Aero / backrooms sister shop -->
+      <a href="aero.html" class="backrooms-cta" aria-label="Explore dreamcore products">
+        <span class="backrooms-cta__glow" aria-hidden="true"></span>
+        <span class="backrooms-cta__copy">
+          <span class="backrooms-cta__kicker">Liminal shop · now open</span>
+          <strong class="backrooms-cta__title">Explore dreamcore products</strong>
+          <span class="backrooms-cta__sub">Step into liminal Frutiger Aero goods, pastel cloudscapes &amp; dreamy resin charms.</span>
+        </span>
+        <img class="backrooms-cta__img" src="assets/button1.png" alt="" aria-hidden="true" />
+      </a>
     </section>
 
     <!-- ===== No-code configurator ===== -->
@@ -500,35 +406,8 @@
     </div>
   </footer>
 
-  <!-- ===== Floating bottom bar with ticker ===== -->
-  <div class="dock" id="dock">
-    <div class="dock__lead">
-      <span class="dock__pulse"></span>
-      <strong>Explore our best sellers</strong>
-    </div>
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker__track">
-        <span>Heart Box Clickers</span><span class="dot">●</span>
-        <span>Canvas Pairs</span><span class="dot">●</span>
-        <span>Mushroom Series</span><span class="dot">●</span>
-        <span>Pocket Pebbles</span><span class="dot">●</span>
-        <span>Rotary Dials</span><span class="dot">●</span>
-        <span>Neon Caps</span><span class="dot">●</span>
-        <span>Halo Docks</span><span class="dot">●</span>
-        <!-- duplicate for seamless loop -->
-        <span>Heart Box Clickers</span><span class="dot">●</span>
-        <span>Canvas Pairs</span><span class="dot">●</span>
-        <span>Mushroom Series</span><span class="dot">●</span>
-        <span>Pocket Pebbles</span><span class="dot">●</span>
-        <span>Rotary Dials</span><span class="dot">●</span>
-        <span>Neon Caps</span><span class="dot">●</span>
-        <span>Halo Docks</span><span class="dot">●</span>
-      </div>
-    </div>
-    <a href="#products" class="btn btn--primary dock__btn">Shop now</a>
-  </div>
-
   <script src="script.js"></script>
+  <script type="module" src="store.js"></script>
 
   <!-- tawk.to live chat -->
   <script type="text/javascript">

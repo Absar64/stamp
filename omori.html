@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omori Key ring — Stamp</title>
+  <meta name="description" content="Omori Key ring by Stamp — a nostalgic, dreamy, slightly eerie hand-poured acrylic/resin charm with a soft glow and a solid steel ring. Carry a daydream on your keys." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="aero.css" />
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</head>
+<body class="aero">
+  <div class="aero-sky" id="aeroSky" aria-hidden="true"></div>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="aero.html" class="brand" aria-label="Stamp home">
+        <span class="brand__mark" data-aero="logo" aria-hidden="true"></span>
+        <span class="brand__name">Stamp</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="aero.html" class="nav__link">Home</a>
+        <a href="aero.html#shop" class="nav__link">Shop</a>
+        <a href="omori.html" class="nav__link is-active">Omori</a>
+        <a href="aero.html#support" class="nav__link">Support</a>
+      </nav>
+      <div class="nav__actions">
+        <select class="aero-currency" id="currencySelect" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AUD">A$ AUD</option>
+          <option value="CAD">C$ CAD</option>
+        </select>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Product hero ===== -->
+    <section class="aero-prod">
+      <a href="aero.html#shop" class="aero-prod__back">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+        All goods
+      </a>
+
+      <div class="aero-prod__grid">
+        <div class="aero-prod__stage">
+          <div class="aero-prod__frame aero-prod__frame--charm" id="aeroFrame">
+            <div data-aero="omori" data-png="true"></div>
+          </div>
+        </div>
+
+        <div class="aero-prod__info">
+          <div class="aero-prod__rating"><span class="aero-prod__stars">★★★★★</span><span>4.8 · 540 reviews</span></div>
+          <h1 class="aero-prod__name">Omori Key ring</h1>
+          <p class="aero-prod__tagline">A nostalgic, dreamy, <span class="grad-text">slightly eerie</span> hand-poured resin charm — it glows soft pink in the light and follows you everywhere.</p>
+
+          <div class="aero-prod__priceRow">
+            <span class="aero-prod__price" id="aeroPrice" data-price="omori">$24</span>
+            <span class="aero-prod__was" data-was="omori">$32</span>
+            <span class="aero-prod__save" id="aeroSave" data-save="omori">Save $8</span>
+          </div>
+
+          <div class="preorder">
+            <span class="preorder__badge">Pre-order only</span>
+            <p class="preorder__line"><strong><span data-claimed="omori">45</span>/<span data-goal="omori">200</span></strong> claimed · <strong data-sold="omori">0</strong> sold · Production delivery estimated: <strong>Late June</strong></p>
+          </div>
+
+          <div class="aero-buy">
+            <div class="pay-stack" style="width:max-content;max-width:100%;margin-inline:0">
+              <stripe-buy-button
+                buy-button-id="buy_btn_1TehttIcuF9dyPkIheQbiDS3"
+                publishable-key="pk_live_51P7N7HIcuF9dyPkIU2zkX9yyOVNITUzNeVZTCiHvPTQAn2f6hyDtSQOTD5Gdr9BzOFxTX2do5cGZEWcdTVy0hXxp00UqchO5Mc">
+              </stripe-buy-button>
+              <img class="pay-cards" src="assets/cards.png" alt="Accepted payment methods" style="display:block;width:60%;height:auto;margin:10px 0 0" />
+            </div>
+            <p class="aero-buy__note">Free shipping over $40 · 30-day returns · plastic-free packaging</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Gallery carousel (auto-scrolling) ===== -->
+    <!-- to add more images: save as omori1.png, omori2.png, omori3.png … in assets/aero/
+         then duplicate the slide pair (one in each half) for each new image. -->
+    <section class="aero-carousel" aria-label="More views of the Omori Key ring">
+      <div class="aero-carousel__viewport">
+        <div class="aero-carousel__track">
+          <!-- first half -->
+          <figure class="aero-carousel__slide aero-carousel__slide--charm aero-carousel__slide--pink"><img src="assets/aero/omori1.png" alt="Omori charm" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--charm aero-carousel__slide--sky"><img src="assets/aero/omori2.png" alt="Omori charm — sky tint" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--charm aero-carousel__slide--lime"><img src="assets/aero/omori3.png" alt="Omori charm — lime tint" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--charm aero-carousel__slide--peach"><img src="assets/aero/omori4.png" alt="Omori charm in hand" loading="lazy" /></figure>
+          <!-- duplicate half (keeps the loop seamless) -->
+          <figure class="aero-carousel__slide aero-carousel__slide--charm aero-carousel__slide--pink" aria-hidden="true"><img src="assets/aero/omori1.png" alt="" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--charm aero-carousel__slide--sky" aria-hidden="true"><img src="assets/aero/omori2.png" alt="" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--charm aero-carousel__slide--lime" aria-hidden="true"><img src="assets/aero/omori3.png" alt="" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--charm aero-carousel__slide--peach" aria-hidden="true"><img src="assets/aero/omori4.png" alt="" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== How it's made ===== -->
+    <section class="aero-sec">
+      <div class="section-head aero-sec__head">
+        <div>
+          <span class="eyebrow" style="justify-content:center"><span class="eyebrow__dot"></span> How it's made</span>
+          <h2 class="section-head__title">Poured, cured, glossed</h2>
+          <p class="section-head__sub">Small-batch resin work — no two charms come out exactly the same.</p>
+        </div>
+      </div>
+      <div class="aero-steps">
+        <article class="aero-step glass aero-reveal">
+          <div class="aero-step__icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6h12l-2 14a8 8 0 1 1-8 0z"/><path d="M16 40h16"/></svg></div>
+          <span class="aero-step__n">01</span>
+          <h3>Hand-poured</h3>
+          <p>Tinted resin is poured by hand into the mould, trapping a soft, dreamy gradient inside.</p>
+        </article>
+        <article class="aero-step glass aero-reveal">
+          <div class="aero-step__icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="16"/><path d="M24 8v8M24 32v8M8 24h8M32 24h8"/></svg></div>
+          <span class="aero-step__n">02</span>
+          <h3>Cured &amp; glossed</h3>
+          <p>Slow-cured to a flawless, bubble-free clarity, then sealed with a high-gloss top coat.</p>
+        </article>
+        <article class="aero-step glass aero-reveal">
+          <div class="aero-step__icon"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="14" r="8"/><path d="M24 22v20"/><path d="M16 34h16"/></svg></div>
+          <span class="aero-step__n">03</span>
+          <h3>Ringed &amp; ready</h3>
+          <p>Finished with a solid steel split-ring and clasp, then boxed in plastic-free packaging.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Specs ===== -->
+    <section class="aero-sec">
+      <div class="section-head aero-sec__head">
+        <div><span class="eyebrow" style="justify-content:center"><span class="eyebrow__dot"></span> Specs</span><h2 class="section-head__title">The fine print</h2></div>
+      </div>
+      <div class="aero-specs__grid aero-reveal">
+        <div class="aero-spec"><span>Material</span><strong>Acrylic / epoxy resin</strong></div>
+        <div class="aero-spec"><span>Finish</span><strong>High-gloss top coat</strong></div>
+        <div class="aero-spec"><span>Size</span><strong>~6cm tall</strong></div>
+        <div class="aero-spec"><span>Hardware</span><strong>Steel split-ring &amp; clasp</strong></div>
+        <div class="aero-spec"><span>Tints</span><strong>Pink · Sky · Lime · Clear</strong></div>
+        <div class="aero-spec"><span>Weight</span><strong>Featherlight, ~18g</strong></div>
+        <div class="aero-spec"><span>Made</span><strong>Hand-poured, small batch</strong></div>
+        <div class="aero-spec"><span>Care</span><strong>Wipe clean, avoid heat</strong></div>
+        <div class="aero-spec"><span>Ships</span><strong>Worldwide, plastic-free</strong></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="aero-sec">
+      <div class="section-head aero-sec__head">
+        <div><span class="eyebrow" style="justify-content:center"><span class="eyebrow__dot"></span> FAQ</span><h2 class="section-head__title">Good questions</h2></div>
+      </div>
+      <div class="aero-faq__list">
+        <details class="aero-faq__item glass aero-reveal"><summary>Why does mine look slightly different?<span class="aero-faq__plus"></span></summary><p>Because it is. Every charm is poured by hand, so the gradient, swirl, and tiny imperfections are unique to yours — that's the point.</p></details>
+        <details class="aero-faq__item glass aero-reveal"><summary>Is the resin durable?<span class="aero-faq__plus"></span></summary><p>Very. The gloss coat resists scratches and yellowing. Just keep it out of prolonged direct heat and it'll stay clear for years.</p></details>
+        <details class="aero-faq__item glass aero-reveal"><summary>Does it really glow?<span class="aero-faq__plus"></span></summary><p>It glows in the sense that the translucent tint catches and refracts light — soft and luminous. It isn't glow-in-the-dark (though that edition is in the works).</p></details>
+        <details class="aero-faq__item glass aero-reveal"><summary>Can I get a custom tint?<span class="aero-faq__plus"></span></summary><p>Custom small-batch tints are available for orders of 10+. Reach out via support and we'll mix something dreamy.</p></details>
+        <details class="aero-faq__item glass aero-reveal"><summary>Returns?<span class="aero-faq__plus"></span></summary><p>30-day returns on unused charms, and we'll replace anything that arrives damaged, no questions asked.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== Closing CTA ===== -->
+    <section class="aero-prodcta aero-reveal">
+      <div class="aero-prodcta__inner">
+        <h2>Carry a little dream.</h2>
+        <p>A soft, glowing piece of somewhere else — clipped to your keys.</p>
+        <div class="aero-prodcta__row">
+          <a href="#" class="btn btn--aero">Buy Omori — <span data-price="omori">$24</span></a>
+          <a href="level94.html" class="btn btn--glass">See the Level 94 print</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="aero-footer">
+    <div class="aero-footer__top">
+      <div class="brand"><span class="brand__mark" data-aero="logo"></span><span class="brand__name">Stamp</span></div>
+      <nav class="aero-footer__cols">
+        <div><h4>Shop</h4><a href="level94.html">Level 94</a><a href="omori.html">Omori Key ring</a><a href="aero.html#shop">Coming soon</a></div>
+        <div><h4>Studio</h4><a href="#">About</a><a href="#">Process</a><a href="#">Lookbook</a></div>
+        <div><h4>Support</h4><a href="#">Help center</a><a href="#">Shipping</a><a href="#">Contact</a></div>
+      </nav>
+    </div>
+    <div class="aero-footer__bottom"><span>© 2026 Stamp Studio. All rights reserved.</span><span>Stay soft.</span></div>
+  </footer>
+
+  <script src="aero-assets.js"></script>
+  <script src="aero.js"></script>
+  <script type="module" src="store.js"></script>
+
+  <!-- tawk.to live chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a2023e2d0b6e01c2e34bfee/1jq6oobri';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>

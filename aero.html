@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stamp — soft liminal goods</title>
+  <meta name="description" content="Stamp — a web 2.0 revival shop for liminal, Frutiger Aero goods. Pastel cloudscapes, dreamy resin charms, and breezy nostalgia. Bright, glossy, expensive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="aero.css" />
+</head>
+<body class="aero">
+  <!-- floating sky: clouds + bubbles injected by aero.js -->
+  <div class="aero-sky" id="aeroSky" aria-hidden="true"></div>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="aero.html" class="brand" aria-label="Stamp home">
+        <span class="brand__mark" data-aero="logo" aria-hidden="true"></span>
+        <span class="brand__name">Stamp</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="aero.html" class="nav__link is-active">Home</a>
+        <a href="#shop" class="nav__link">Shop</a>
+        <a href="#support" class="nav__link">Support</a>
+      </nav>
+      <div class="nav__actions">
+        <select class="aero-currency" id="currencySelect" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AUD">A$ AUD</option>
+          <option value="CAD">C$ CAD</option>
+        </select>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Hero ===== -->
+    <section class="aero-hero" id="home">
+      <div class="aero-hero__grid">
+        <div class="aero-hero__copy">
+          <h1 class="aero-hero__title">Step into <span class="grad-text">soft places.</span></h1>
+          <p class="aero-hero__lead">
+            From endless sunlit hallways to a pocket-sized dreamscape of infinite glowing hills, 
+            Stamp creates the eerie, nostalgic magic of liminal spaces you can keep on your desk.
+          </p>
+          <div class="aero-hero__cta">
+            <a href="#shop" class="btn btn--aero">Explore the shop
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+            </a>
+          </div>
+          <ul class="aero-hero__stats">
+            <li><strong>∞</strong><span>endless hills</span></li>
+            <li><strong>100%</strong><span>Optical Illusion</span></li>
+            <li><strong>Hand</strong><span>Precision-crafted & illuminated</span></li>
+          </ul>
+        </div>
+
+        <div class="aero-hero__stage">
+          <div class="aero-frame">
+            <span class="aero-frame__sun" data-aero="sun" aria-hidden="true"></span>
+            <div class="aero-frame__art" data-aero="level94" data-png="true"></div>
+            <div class="aero-frame__gloss"></div>
+            <span class="aero-frame__cap">Level 94</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- swaying grass -->
+      <div class="aero-grass" aria-hidden="true">
+        <span data-aero="grass"></span><span data-aero="grass"></span><span data-aero="grass"></span>
+        <span data-aero="grass"></span><span data-aero="grass"></span>
+      </div>
+
+      <div class="aero-chips">
+        <span class="aero-chip is-active">☁️ Dreamcore</span>
+        <span class="aero-chip">🪟 Liminal</span>
+        <span class="aero-chip">🫧 Nostalgia</span>
+        <span class="aero-chip">🌿 Frutiger Aero</span>
+        <span class="aero-chip">🛖 Backrooms</span>
+      </div>
+    </section>
+
+    <!-- ===== Possibilities band ===== -->
+    <section class="aero-band">
+      <h2 class="aero-band__title">Soft nostalgia. <span class="grad-text">Endless calm.</span></h2>
+      <div class="aero-band__grid">
+        <article class="aero-poss glass aero-reveal">
+          <span class="aero-poss__icon" style="--c:var(--sky)">☁️</span>
+          <h3>Bring the sky indoors</h3>
+          <p>A window into a brighter, gentler internet — the one we half-remember.</p>
+        </article>
+        <article class="aero-poss glass aero-reveal">
+          <span class="aero-poss__icon" style="--c:var(--pink)">🫧</span>
+          <h3>Carry a daydream</h3>
+          <p>Resin charms that catch sunlight and turn an ordinary keyring into a portal.</p>
+        </article>
+        <article class="aero-poss glass aero-reveal">
+          <span class="aero-poss__icon" style="--c:var(--lime)">🌿</span>
+          <h3>Breathe out</h3>
+          <p>Frutiger Aero greens and glassy blues, tuned to make a room feel like a deep breath.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Shop / catalog ===== -->
+    <section class="aero-catalog" id="shop">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> The shop</span>
+          <h2 class="section-head__title">Goods</h2>
+        </div>
+      </div>
+
+      <div class="aero-grid">
+        <!-- feature: Level 94 -->
+        <article class="aero-card glass aero-reveal">
+          <div class="aero-card__media aero-card__media--art">
+            <span class="aero-tag aero-tag--art">Flagship · Art</span>
+            <div data-aero="level94" data-png="true" style="width:100%;height:100%"></div>
+          </div>
+          <div class="aero-card__body">
+            <span class="aero-duo__kicker" style="--c:var(--sky)">The Art Piece</span>
+            <div class="aero-card__row">
+              <h3 class="aero-card__name">Level 94 — liminal green hills</h3>
+              <span class="aero-card__price" data-price="level94">$94</span>
+            </div>
+            <p class="aero-card__desc">Safe during the day with almond water fountains and vintage vehicles, the level becomes dangerous at night when aggressive entities spawn and hunt down the player, so keep the light on?</p>
+            <a href="level94.html" class="btn btn--aero btn--card">Explore Level 94 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Omori -->
+        <article class="aero-card glass aero-reveal">
+          <div class="aero-card__media aero-card__media--charm">
+            <span class="aero-tag aero-tag--charm">Flagship · Resin</span>
+            <div class="aero-card__charm" data-aero="omori" data-png="true"></div>
+          </div>
+          <div class="aero-card__body">
+            <div class="aero-card__row">
+              <h3 class="aero-card__name">Omori Key ring</h3>
+              <span class="aero-card__price" data-price="omori">$24</span>
+            </div>
+            <p class="aero-card__desc">A dreamy, hand drawn resin charm. Based on the video game Omori.</p>
+            <a href="omori.html" class="btn btn--aero btn--card">Explore Omori <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- link back to the hardware flagship store -->
+      <a href="index.html" class="stamp-cta" aria-label="Visit the Stamp hardware store">
+        <span class="stamp-cta__glow" aria-hidden="true"></span>
+        <span class="stamp-cta__copy">
+          <span class="stamp-cta__kicker">Flagship store</span>
+          <strong class="stamp-cta__title">Explore eletronic Stamp products</strong>
+          <span class="stamp-cta__sub">Eletronic Fidget clickers shaped as chocolate, paired Love screens to stay connected - Perfect For couples</span>
+        </span>
+        <img class="stamp-cta__img" src="assets/button2.png" alt="" aria-hidden="true" />
+      </a>
+    </section>
+
+    <!-- ===== Support ===== -->
+    <section class="aero-support" id="support">
+      <div class="aero-support__inner glass">
+        <h2>Printed with care. Poured by hand.</h2>
+        <p>Real humans who answer, high quality materials, next day delivery.</p>
+        <div class="aero-support__cta">
+          <a href="#" class="btn btn--aero">Contact support</a>
+          <a href="index.html" class="btn btn--glass">Back to Stamp</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="aero-footer">
+    <div class="aero-footer__top">
+      <div class="brand">
+        <span class="brand__mark" data-aero="logo"></span>
+        <span class="brand__name">Stamp</span>
+      </div>
+      <nav class="aero-footer__cols">
+        <div><h4>Shop</h4><a href="level94.html">Level 94</a><a href="omori.html">Omori Key ring</a></div>
+        <div><h4>Socials</h4><a href="#">Email</a><a href="#">TikTok</a><a href="https://www.instagram.com/stamp.ac2?igsh=MWp1OXdyOXB4MWI3MQ%3D%3D&utm_source=qr">Instagram</a></div>
+        <div><h4>Support</h4><a href="#">Help center</a><a href="#">Shipping</a><a href="#">Contact</a></div>
+      </nav>
+    </div>
+    <div class="aero-footer__bottom">
+      <span>© 2026 Stamp Studio. All rights reserved.</span>
+      <span>Stay soft.</span>
+    </div>
+  </footer>
+
+
+  <script src="aero-assets.js"></script>
+  <script src="aero.js"></script>
+  <script type="module" src="store.js"></script>
+
+  <!-- tawk.to live chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a2023e2d0b6e01c2e34bfee/1jq6oobri';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
