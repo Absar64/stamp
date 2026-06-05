@@ -159,3 +159,11 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) clearInterval(rTimer);
   else rTimer = setInterval(cycle, 2600);
 });
+
+// ===== Contact controls open the tawk live chat =====
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-chat]');
+  if (!t) return;
+  e.preventDefault();
+  if (window.Tawk_API && typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
+});

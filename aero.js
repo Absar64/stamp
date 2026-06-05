@@ -226,3 +226,11 @@ if (aeroReveal.length) {
   ['pointerdown', 'keydown', 'touchstart'].forEach(ev =>
     window.addEventListener(ev, firstGesture, { once: false, passive: true }));
 })();
+
+// ===== Contact controls open the tawk live chat =====
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-chat]');
+  if (!t) return;
+  e.preventDefault();
+  if (window.Tawk_API && typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
+});
