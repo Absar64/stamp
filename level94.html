@@ -65,7 +65,7 @@
           <div class="aero-prod__priceRow">
             <span class="aero-prod__price" id="aeroPrice" data-price="level94">$94</span>
             <span class="aero-prod__was" data-was="level94">$120</span>
-            <span class="aero-prod__save" id="aeroSave" data-save="level94">Save $26</span>
+            <span class="aero-stock--out">Out of stock</span>
           </div>
 
           <div class="preorder">
@@ -74,14 +74,8 @@
           </div>
 
           <div class="aero-buy">
-            <div class="pay-stack" style="width:max-content;max-width:100%;margin-inline:0">
-              <stripe-buy-button
-                buy-button-id="buy_btn_1TehtQIcuF9dyPkIE2A16gg2"
-                publishable-key="pk_live_51P7N7HIcuF9dyPkIU2zkX9yyOVNITUzNeVZTCiHvPTQAn2f6hyDtSQOTD5Gdr9BzOFxTX2do5cGZEWcdTVy0hXxp00UqchO5Mc">
-              </stripe-buy-button>
-              <img class="pay-cards" src="assets/cards.png" alt="Accepted payment methods" style="display:block;width:60%;height:auto;margin:10px 0 0" />
-            </div>
-            <p class="aero-buy__note">Worldwide shipping · 30-day returns</p>
+            <button class="btn btn--aero aero-soldout" type="button" disabled aria-disabled="true">Sold out</button>
+            <p class="aero-buy__note">This piece is currently out of stock — check back soon.</p>
           </div>
         </div>
       </div>
@@ -148,7 +142,7 @@
         <h2>Hang the endless hallway.</h2>
         <p>A window into somewhere softer — printed to last a lifetime.</p>
         <div class="aero-prodcta__row">
-          <a href="#" class="btn btn--aero">Buy Level 94 — <span data-price="level94">$94</span></a>
+          <button class="btn btn--aero aero-soldout" type="button" disabled aria-disabled="true">Sold out</button>
           <a href="omori" class="btn btn--glass">See the Omori Key ring</a>
         </div>
       </div>

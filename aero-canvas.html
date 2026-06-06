@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Canvas — Stamp</title>
+  <meta name="description" content="Canvas by Stamp — a little screen for the people you love. Send a photo, a doodle, or a heart and it lands on their desk the second you press send. Connect unlimited friends." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="canvas.css" />
+  <link rel="stylesheet" href="aero-skin.css" />
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</head>
+<body class="cv-page aero-skin">
+  <!-- ===== Sticky Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="aero" class="brand" aria-label="Stamp home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26"><rect x="5" y="5" width="22" height="22" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="5" fill="currentColor"/></svg>
+        </span>
+        <span class="brand__name">Stamp</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="aero" class="nav__link" data-accent="yellow">Home</a>
+        <a href="aero#shop" class="nav__link" data-accent="blue">Products</a>
+        <a href="aero-canvas" class="nav__link is-active" data-accent="purple">Canvas</a>
+        <a href="aero#support" class="nav__link" data-accent="yellow">Support</a>
+      </nav>
+      <div class="nav__actions">
+        <select class="currency-select" id="currencySelect" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AUD">A$ AUD</option>
+          <option value="CAD">C$ CAD</option>
+        </select>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Product hero ===== -->
+    <section class="cv-hero">
+      <div class="cv-hero__glow"></div>
+      <a href="aero#shop" class="cv-back cv-in" style="--d:.02">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+        All products
+      </a>
+
+      <div class="cv-hero__grid">
+        <!-- gallery / the "image" -->
+        <div class="cv-stage cv-in" style="--d:.05">
+          <div class="cv-stage__ring"></div>
+          <!-- drop assets/canvas.png in to replace the mockup; it hides itself if missing -->
+          <img class="cv-photo" src="assets/canvas.png" alt="Canvas" onerror="this.remove()" />
+          <div class="cv-device" id="cvDevice">
+            <div class="cv-device__frame">
+              <div class="cv-device__screen">
+                <span class="cv-device__notif">New letter</span>
+                <span class="cv-device__img" id="cvScreenImg">❤️</span>
+              </div>
+              <span class="cv-device__cam"></span>
+            </div>
+            <div class="cv-device__neck"></div>
+            <div class="cv-device__base"></div>
+          </div>
+          <p class="cv-stage__caption">Canvas <span>·</span> <em id="cvCaptionFinish">Aurora</em> finish</p>
+        </div>
+
+        <!-- info + buy -->
+        <div class="cv-info">
+          <div class="cv-info__rating cv-in" style="--d:.08">
+            <span class="cv-stars">★★★★★</span>
+            <span>4.9</span>
+          </div>
+          <h1 class="cv-info__name cv-in" style="--d:.12">Canvas</h1>
+          <p class="cv-info__tagline cv-in" style="--d:.16">
+            A little screen for the people you love. Send a photo, a doodle, or a
+            <span class="grad-text">heart</span> — it lands on their desk the second you press send.
+          </p>
+
+          <div class="cv-info__priceRow cv-in" style="--d:.2">
+            <span class="cv-info__price" id="cvPrice" data-price="canvas">$129</span>
+            <span class="cv-info__was" data-was="canvas">$159</span>
+            <span class="cv-info__save" id="cvSave" data-save="canvas">Save $30</span>
+          </div>
+
+          <!-- pre-order status -->
+          <div class="preorder cv-in" style="--d:.24">
+            <span class="preorder__badge">Pre-order only</span>
+            <p class="preorder__line"><strong><span data-claimed="canvas">153</span>/<span data-goal="canvas">1000</span></strong> claimed · <strong data-sold="canvas">0</strong> sold · Production delivery estimated: <strong>late August</strong></p>
+          </div>
+
+          <ul class="cv-info__perks cv-in" style="--d:.32">
+            <li><span class="cv-tick">✦</span> Connect an <strong>unlimited</strong> number of friends & family</li>
+            <li><span class="cv-tick">✦</span> Instant delivery over Wi-Fi — no subscription</li>
+            <li><span class="cv-tick">✦</span> Send images, videos, voice-notes</li>
+          </ul>
+
+          <!-- stripe buy button -->
+          <div class="cv-buy cv-in" style="--d:.36">
+            <div class="pay-stack" style="width:max-content;max-width:100%;margin-inline:0">
+              <stripe-buy-button
+                buy-button-id="buy_btn_1TehuHIcuF9dyPkILRtD3yhK"
+                publishable-key="pk_live_51P7N7HIcuF9dyPkIU2zkX9yyOVNITUzNeVZTCiHvPTQAn2f6hyDtSQOTD5Gdr9BzOFxTX2do5cGZEWcdTVy0hXxp00UqchO5Mc">
+              </stripe-buy-button>
+              <img class="pay-cards" src="assets/cards.png" alt="Accepted payment methods" style="display:block;width:60%;height:auto;margin:10px 0 0" />
+            </div>
+            <p class="cv-buy__note">Free shipping · 30-day returns · 1-year warranty</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Trust strip ===== -->
+    <section class="cv-strip">
+      <div class="cv-strip__item cv-reveal"><strong>Unlimited</strong><span>friends per Canvas</span></div>
+      <div class="cv-strip__item cv-reveal"><strong>&lt; 1s</strong><span>to deliver a letter</span></div>
+      <div class="cv-strip__item cv-reveal"><strong>12 hr</strong><span>battery, USB-C</span></div>
+      <div class="cv-strip__item cv-reveal"><strong>$0</strong><span>monthly fees, forever</span></div>
+    </section>
+
+    <!-- ===== How it works ===== -->
+    <section class="cv-how">
+      <div class="section-head cv-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> How it works</span>
+          <h2 class="section-head__title">Three taps to their desk</h2>
+          <p class="section-head__sub">No accounts to wrangle, no cables between homes. Pair once and start sending.</p>
+        </div>
+      </div>
+      <div class="cv-steps">
+        <article class="cv-step cv-reveal">
+          <div class="cv-step__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="8" y="6" width="32" height="36" rx="6"/><path d="M16 16h16M16 24h16M16 32h10"/>
+            </svg>
+          </div>
+          <span class="cv-step__n">01</span>
+          <h3>Pair in the app</h3>
+          <p>Open the Stamp app, scan the code on your Canvas, and it's online in seconds.</p>
+        </article>
+        <article class="cv-step cv-reveal">
+          <div class="cv-step__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="18" cy="16" r="6"/><circle cx="33" cy="20" r="5"/><path d="M8 40c0-6 5-10 10-10s10 4 10 10M27 40c0-4 2-7 6-8"/>
+            </svg>
+          </div>
+          <span class="cv-step__n">02</span>
+          <h3>Add anyone</h3>
+          <p>Invite a partner, your parents, the group chat — unlimited people, on a Canvas or the app.</p>
+        </article>
+        <article class="cv-step cv-reveal">
+          <div class="cv-step__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 24 42 8l-8 34-9-12-9 6z"/><path d="M25 30 42 8"/>
+            </svg>
+          </div>
+          <span class="cv-step__n">03</span>
+          <h3>Send a moment</h3>
+          <p>Pick a photo or doodle, tap a name, and it appears on their Canvas — instantly.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Live demo: send to anyone ===== -->
+    <section class="cv-demo" id="cvdemo">
+      <div class="cv-demo__glow"></div>
+      <div class="section-head cv-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Live demo</span>
+          <h2 class="section-head__title">Send to whoever you like</h2>
+          <p class="section-head__sub">One Canvas, your whole circle. Tap a friend, then tap a moment — watch it land.</p>
+        </div>
+      </div>
+
+      <div class="cv-demo__panel cv-reveal">
+        <!-- receiving canvas -->
+        <div class="cv-demo__screen-wrap">
+          <div class="cv-demo__device">
+            <div class="cv-demo__screen" id="cvDemoScreen">
+              <span class="cv-demo__notif" id="cvDemoNotif">New letter!</span>
+              <span class="cv-demo__img" id="cvDemoImg"></span>
+              <span class="cv-demo__idle" id="cvDemoIdle">pick a friend &amp; a moment →</span>
+            </div>
+            <div class="cv-demo__foot"></div>
+          </div>
+          <p class="cv-demo__to" id="cvDemoTo">Delivering to <strong>—</strong></p>
+        </div>
+
+        <!-- controls -->
+        <div class="cv-demo__controls">
+          <span class="cv-demo__label">Your people</span>
+          <div class="cv-friends" id="cvFriends">
+            <button class="cv-friend is-active" type="button" data-name="Mia">🦊<span>Mia</span></button>
+            <button class="cv-friend" type="button" data-name="Dad">🐻<span>Dad</span></button>
+            <button class="cv-friend" type="button" data-name="Noor">🐱<span>Noor</span></button>
+            <button class="cv-friend" type="button" data-name="Leo">🐧<span>Leo</span></button>
+            <button class="cv-friend" type="button" data-name="Gran">🦉<span>Gran</span></button>
+            <span class="cv-friend cv-friend--add" aria-hidden="true">＋<span>unlimited</span></span>
+          </div>
+
+          <span class="cv-demo__label">Send a moment</span>
+          <div class="cv-moments" id="cvMoments">
+            <button class="cv-moment" type="button">❤️</button>
+            <button class="cv-moment" type="button">📸</button>
+            <button class="cv-moment" type="button">🌙</button>
+            <button class="cv-moment" type="button">🎨</button>
+            <button class="cv-moment" type="button">😘</button>
+            <button class="cv-moment" type="button">⭐</button>
+            <button class="cv-moment" type="button">☕</button>
+            <button class="cv-moment" type="button">🌸</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Possibilities ===== -->
+    <section class="cv-poss">
+      <div class="section-head cv-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Possibilities</span>
+          <h2 class="section-head__title">A hundred little ways to say <span class="grad-text">"thinking of you"</span></h2>
+        </div>
+      </div>
+      <div class="cv-poss__grid">
+        <article class="cv-pcard cv-reveal" style="--c:#ec4899">
+          <span class="cv-pcard__ico">💞</span>
+          <h3>Long-distance love</h3>
+          <p>Close the miles with a good-morning heart waiting on their desk.</p>
+        </article>
+        <article class="cv-pcard cv-reveal" style="--c:var(--purple)">
+          <span class="cv-pcard__ico">👨‍👩‍👧</span>
+          <h3>Family across timezones</h3>
+          <p>Send the sunset you're seeing while they sleep — it's there when they wake.</p>
+        </article>
+        <article class="cv-pcard cv-reveal" style="--c:var(--blue-2)">
+          <span class="cv-pcard__ico">🎨</span>
+          <h3>Kids' drawings to grandparents</h3>
+          <p>Today's masterpiece, framed on Gran's Canvas the moment it's finished.</p>
+        </article>
+        <article class="cv-pcard cv-reveal" style="--c:var(--yellow)">
+          <span class="cv-pcard__ico">😹</span>
+          <h3>The group-chat inside joke</h3>
+          <p>Blast the meme of the day to the whole crew at once — everyone gets it.</p>
+        </article>
+        <article class="cv-pcard cv-reveal" style="--c:var(--green)">
+          <span class="cv-pcard__ico">🐾</span>
+          <h3>Pet of the day</h3>
+          <p>Because the people you love should never miss a single nap pose.</p>
+        </article>
+        <article class="cv-pcard cv-reveal" style="--c:#00a3ff">
+          <span class="cv-pcard__ico">🎉</span>
+          <h3>Tiny celebrations</h3>
+          <p>Aced the exam? Got the job? Light up every Canvas that matters.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Specs ===== -->
+    <section class="cv-specs">
+      <div class="section-head cv-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Specs</span>
+          <h2 class="section-head__title">Small thing, serious craft</h2>
+        </div>
+      </div>
+      <div class="cv-specs__grid cv-reveal">
+        <div class="cv-spec"><span>Display</span><strong>To be confirmed</strong></div>
+        <div class="cv-spec"><span>Connectivity</span><strong>Wi-Fi 2.4 / 5 GHz</strong></div>
+        <div class="cv-spec"><span>Friends</span><strong>Unlimited</strong></div>
+        <div class="cv-spec"><span>Power</span><strong>USB-C · 12-hr battery</strong></div>
+        <div class="cv-spec"><span>Frame</span><strong>To be confirmed</strong></div>
+        <div class="cv-spec"><span>Alert</span><strong>To be confirmed</strong></div>
+        <div class="cv-spec"><span>In the box</span><strong>Canvas · cable · stand</strong></div>
+        <div class="cv-spec"><span>Dimensions</span><strong>To be confirmed</strong></div>
+        <div class="cv-spec"><span>App</span><strong>iOS &amp; Android</strong></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="cv-faq">
+      <div class="section-head cv-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> FAQ</span>
+          <h2 class="section-head__title">Good questions</h2>
+        </div>
+      </div>
+      <div class="cv-faq__list" id="cvFaq">
+        <details class="cv-faq__item cv-reveal">
+          <summary>How many people can I connect?<span class="cv-faq__plus"></span></summary>
+          <p>As many as you like. Add a partner, your whole family, or the entire group chat — there's no limit on friends, and you can send to whoever you want from the app.</p>
+        </details>
+        <details class="cv-faq__item cv-reveal">
+          <summary>Does the other person need a Canvas too?<span class="cv-faq__plus"></span></summary>
+          <p>Nice to have, not required. Friends can receive on their own Canvas or right inside the free Stamp app — so you can start sending before their device even arrives.</p>
+        </details>
+        <details class="cv-faq__item cv-reveal">
+          <summary>Is there a subscription?<span class="cv-faq__plus"></span></summary>
+          <p>Never. Canvas is yours once you buy it — unlimited sending, no monthly fees, no paywalled features.</p>
+        </details>
+        <details class="cv-faq__item cv-reveal">
+          <summary>How fast does a letter arrive?<span class="cv-faq__plus"></span></summary>
+          <p>Under a second on Wi-Fi. The screen fades in your image and the LED ring glows softly so they notice without a buzzing phone.</p>
+        </details>
+        <details class="cv-faq__item cv-reveal">
+          <summary>What about privacy?<span class="cv-faq__plus"></span></summary>
+          <p>Letters are end-to-end encrypted and only visible to the people you've added. You can remove anyone from a Canvas at any time.</p>
+        </details>
+        <details class="cv-faq__item cv-reveal">
+          <summary>Returns and warranty?<span class="cv-faq__plus"></span></summary>
+          <p>30-day no-questions returns and a 1-year hardware warranty, backed by humans who actually answer.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== Closing CTA ===== -->
+    <section class="cv-cta cv-reveal">
+      <div class="cv-cta__inner">
+        <h2>Put a little love on their desk.</h2>
+        <p>Order today and start sending the moment it's paired.</p>
+        <div class="cv-cta__row">
+          <a href="#" class="btn btn--canvas-solid">Buy Canvas — <span data-price="canvas">$129</span></a>
+          <a href="#cvdemo" class="btn btn--ghost">See the two-way demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="brand">
+        <span class="brand__mark"><svg viewBox="0 0 32 32" width="24" height="24"><rect x="5" y="5" width="22" height="22" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="5" fill="currentColor"/></svg></span>
+        <span class="brand__name">Stamp</span>
+      </div>
+      <nav class="footer__cols">
+        <div><h4>Shop</h4><a href="aero-clicker">Clickers</a><a href="aero-canvas">Canvas</a><a href="aero#shop">Accessories</a><a href="#">Bundles</a></div>
+        <div><h4>Company</h4><a href="#">About</a><a href="#">Studio</a><a href="#">Press</a></div>
+        <div><h4>Support</h4><a href="#">Help center</a><a href="#">Warranty</a><a href="#" data-chat>Contact</a></div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Stamp Hardware. All rights reserved.</span>
+      <span>Stay connected.</span>
+    </div>
+  </footer>
+
+  <script src="canvas.js"></script>
+  <script type="module" src="store.js"></script>
+
+  <!-- tawk.to live chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a2023e2d0b6e01c2e34bfee/1jq6oobri';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>

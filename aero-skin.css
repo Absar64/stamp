@@ -1,0 +1,76 @@
+/* ===== Aero re-skin for the cloned product pages (Heart Box + Canvas) ===== */
+/* re-colours the dark product pages to the light Frutiger-Aero palette.
+   loaded AFTER styles.css + the page css and scoped to body.aero-skin, so the
+   original dark pages are untouched. all markup + js are inherited unchanged —
+   only colours change here. */
+
+.aero-skin{
+  /* surfaces → light */
+  --bg:#eef7fd;
+  --surface:#ffffff;
+  --surface-2:#ffffff;
+  --card:rgba(255,255,255,.72);
+  --line:rgba(16,40,58,.12);
+  --text:#10283a;
+  --muted:#52708a;
+  --muted-2:#8aa2b4;
+  /* accents → aero */
+  --yellow:#38b6ff;     /* bright accent → sky */
+  --blue:#38b6ff;
+  --blue-2:#0a96e6;
+  --purple:#7c5cff;
+  --green:#5bc8a0;
+
+  font-family:"Outfit","Segoe UI",system-ui,-apple-system,sans-serif;
+  background:linear-gradient(180deg,#dff1ff,#eef7fd 42%) fixed;
+}
+
+/* per-page accent pairs, aero-toned */
+.aero-skin.ck-page{--ck:#38b6ff;--ck2:#19b36a}
+.aero-skin.cv-page{--cv:#7c5cff;--cv2:#ff7ec4}
+
+/* translucent light nav + mobile menu */
+.aero-skin .nav.is-stuck{background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(160%)}
+.aero-skin .nav__links.is-open{background:rgba(255,255,255,.95)}
+.aero-skin .nav__toggle span{background:var(--text)}
+
+/* dark panel surfaces → light glass */
+.aero-skin .ck-demo__panel,
+.aero-skin .cv-demo__panel,
+.aero-skin .ck-fidget__inner{
+  background:linear-gradient(180deg,#ffffff,#e9f4fc);
+}
+.aero-skin .ck-demo__stage,
+.aero-skin .cv-demo__screen-wrap{
+  background:radial-gradient(circle at 50% 40%,#eaf5fd,#d8eaf7 72%);
+}
+.aero-skin .ck-cta__inner{
+  background:radial-gradient(circle at 50% 0%,#d7eeff,#ffffff 70%);
+  border-color:color-mix(in srgb,var(--ck2) 35%,var(--line));
+}
+.aero-skin .cv-cta__inner{
+  background:radial-gradient(circle at 50% 0%,#ece6ff,#ffffff 70%);
+  border-color:color-mix(in srgb,var(--cv) 35%,var(--line));
+}
+
+/* hero / section glows → aero hues (subtle on the light bg) */
+.aero-skin .ck-hero__glow{background:radial-gradient(circle,rgba(56,182,255,.30),rgba(25,179,106,.22) 52%,transparent 72%)}
+.aero-skin .ck-demo__glow{background:radial-gradient(circle,rgba(56,182,255,.18),rgba(25,179,106,.16) 55%,transparent 72%)}
+.aero-skin .ck-fidget__glow{background:radial-gradient(circle,rgba(56,182,255,.16),rgba(124,92,255,.16) 55%,transparent 72%)}
+.aero-skin .cv-hero__glow,
+.aero-skin .cv-demo__glow{background:radial-gradient(circle,rgba(124,92,255,.24),rgba(255,143,199,.2) 52%,transparent 72%)}
+
+/* product video section */
+.aero-skin .ck-video{max-width:var(--maxw);margin:0 auto;padding:24px 22px 30px}
+.aero-skin .ck-video__frame{position:relative;max-width:880px;margin:20px auto 0;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#0b1622;box-shadow:0 44px 90px -46px rgba(16,40,58,.55)}
+.aero-skin .ck-video__player{display:block;width:100%;height:auto;aspect-ratio:16/9;background:#0b1622;object-fit:contain}
+
+/* rounder, glassier cards to feel aero */
+.aero-skin .ck-step,.aero-skin .cv-step,
+.aero-skin .ck-pcard,.aero-skin .cv-pcard,
+.aero-skin .ck-faq__item,.aero-skin .cv-faq__item,
+.aero-skin .ck-pack,.aero-skin .cv-pack,
+.aero-skin .ck-bigkey,.aero-skin .cv-friend,.aero-skin .cv-moment,
+.aero-skin .ck-fidget__tags li{
+  box-shadow:0 10px 30px -22px rgba(16,40,58,.5);
+}

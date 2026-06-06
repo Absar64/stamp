@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Heart Box Clicker — Stamp</title>
+  <meta name="description" content="Heart Box Clicker by Stamp — three programmable buttons and a built-in speaker. Click to do anything: lights, messages, soundboards, macros. Two-week battery, no code." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="clicker.css?v=2" />
+  <link rel="stylesheet" href="aero-skin.css" />
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</head>
+<body class="ck-page aero-skin">
+  <!-- ===== Sticky Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="aero" class="brand" aria-label="Stamp home">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="26" height="26"><rect x="5" y="5" width="22" height="22" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="5" fill="currentColor"/></svg>
+        </span>
+        <span class="brand__name">Stamp</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="aero" class="nav__link" data-accent="yellow">Home</a>
+        <a href="aero#shop" class="nav__link" data-accent="blue">Products</a>
+        <a href="aero-clicker" class="nav__link is-active" data-accent="yellow">Clicker</a>
+        <a href="aero#support" class="nav__link" data-accent="yellow">Support</a>
+      </nav>
+      <div class="nav__actions">
+        <select class="currency-select" id="currencySelect" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AUD">A$ AUD</option>
+          <option value="CAD">C$ CAD</option>
+        </select>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Product hero ===== -->
+    <section class="ck-hero">
+      <div class="ck-hero__glow"></div>
+      <a href="aero#shop" class="ck-back ck-in" style="--d:.02">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+        All products
+      </a>
+
+      <div class="ck-hero__grid">
+        <!-- gallery / the "image" -->
+        <div class="ck-stage ck-in" style="--d:.05">
+          <div class="ck-stage__ring"></div>
+          <!-- drop assets/heart.png in to replace the mockup; it hides itself if missing -->
+          <img class="ck-photo" src="assets/heart.png" alt="Heart Box Clicker" onerror="this.remove()" />
+          <div class="ck-device" id="ckDevice">
+            <div class="ck-device__box">
+              <div class="ck-device__face">
+                <span class="ck-emblem" id="ckEmblem">❤️</span>
+                <div class="ck-speaker"><span></span><span></span><span></span><span></span></div>
+                <div class="ck-keys">
+                  <span class="ck-key ck-key--1">💡</span>
+                  <span class="ck-key ck-key--2">🔊</span>
+                  <span class="ck-key ck-key--3">💌</span>
+                </div>
+              </div>
+            </div>
+            <div class="ck-device__foot"></div>
+          </div>
+          <p class="ck-stage__caption">Heart Box <span>·</span> <em id="ckCaptionFinish">Lemon</em> finish</p>
+        </div>
+
+        <!-- info + buy -->
+        <div class="ck-info">
+          <div class="ck-info__rating ck-in" style="--d:.08">
+            <span class="ck-stars">★★★★★</span>
+            <span>4.8</span>
+          </div>
+          <h1 class="ck-info__name ck-in" style="--d:.12">Heart Box Clicker</h1>
+          <p class="ck-info__tagline ck-in" style="--d:.16">
+            Three buttons. A built-in speaker. <span class="grad-text">Click to do anything</span> — lights,
+            messages, a soundboard "Boom" — all mapped in seconds, no code.
+          </p>
+
+          <div class="ck-info__priceRow ck-in" style="--d:.2">
+            <span class="ck-info__price" id="ckPrice" data-price="clicker">$89</span>
+            <span class="ck-info__was" data-was="clicker">$109</span>
+            <span class="ck-info__save" id="ckSave" data-save="clicker">Save $20</span>
+          </div>
+
+          <!-- pre-order status -->
+          <div class="preorder ck-in" style="--d:.24">
+            <span class="preorder__badge">Pre-order only</span>
+            <p class="preorder__line"><strong><span data-claimed="clicker">125</span>/<span data-goal="clicker">1000</span></strong> claimed · <strong data-sold="clicker">0</strong> sold · Production delivery estimated: <strong>Early August</strong></p>
+          </div>
+
+          <ul class="ck-info__perks ck-in" style="--d:.32">
+            <li><span class="ck-tick">✦</span> <strong>3 programmable buttons</strong> — each does anything you map</li>
+            <li><span class="ck-tick">✦</span> Built-in speaker for sounds &amp; soundboards</li>
+            <li><span class="ck-tick">✦</span> Or just <strong>fidget</strong> — no action, pure tactile clicking</li>
+            <li><span class="ck-tick">✦</span> For <strong>couples</strong> · stay connected even when busy</li>
+          </ul>
+
+          <!-- stripe buy button -->
+          <div class="ck-buy ck-in" style="--d:.36">
+            <div class="pay-stack" style="width:max-content;max-width:100%;margin-inline:0">
+              <stripe-buy-button
+                buy-button-id="buy_btn_1TehbuIcuF9dyPkIU6sJXTyW"
+                publishable-key="pk_live_51P7N7HIcuF9dyPkIU2zkX9yyOVNITUzNeVZTCiHvPTQAn2f6hyDtSQOTD5Gdr9BzOFxTX2do5cGZEWcdTVy0hXxp00UqchO5Mc">
+              </stripe-buy-button>
+              <img class="pay-cards" src="assets/cards.png" alt="Accepted payment methods" style="display:block;width:60%;height:auto;margin:10px 0 0" />
+            </div>
+            <p class="ck-buy__note">Free shipping · 30-day returns · 2-year warranty</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Trust strip ===== -->
+    <section class="ck-strip">
+      <div class="ck-strip__item ck-reveal"><strong>3</strong><span>programmable buttons</span></div>
+      <div class="ck-strip__item ck-reveal"><strong>2 wks</strong><span>battery per charge</span></div>
+      <div class="ck-strip__item ck-reveal"><strong>1 W</strong><span>built-in speaker</span></div>
+      <div class="ck-strip__item ck-reveal"><strong>No-code</strong><span>setup in minutes</span></div>
+    </section>
+
+    <!-- ===== Product video ===== -->
+    <section class="ck-video ck-reveal">
+      <div class="section-head ck-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> In motion</span>
+          <h2 class="section-head__title">See the Heart Box in action</h2>
+        </div>
+      </div>
+      <div class="ck-video__frame">
+        <video class="ck-video__player" controls playsinline preload="metadata" poster="assets/heart.png">
+          <source src="assets/heart-clicker.mp4" type="video/mp4" />
+          Your browser doesn't support embedded video.
+        </video>
+      </div>
+    </section>
+
+    <!-- ===== How it works ===== -->
+    <section class="ck-how">
+      <div class="section-head ck-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> How it works</span>
+          <h2 class="section-head__title">Map it once, click forever</h2>
+          <p class="section-head__sub">Assign each button to whatever you want in the Stamp app. Change it any time.</p>
+        </div>
+      </div>
+      <div class="ck-steps">
+        <article class="ck-step ck-reveal">
+          <div class="ck-step__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="6" y="12" width="36" height="24" rx="6"/><circle cx="16" cy="24" r="3"/><circle cx="24" cy="24" r="3"/><circle cx="32" cy="24" r="3"/>
+            </svg>
+          </div>
+          <span class="ck-step__n">01</span>
+          <h3>Pick a button</h3>
+          <p>Three independent buttons — single press, double, or hold all count as triggers.</p>
+        </article>
+        <article class="ck-step ck-reveal">
+          <div class="ck-step__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 6v36M14 16v16M34 16v16M8 22v4M40 22v4"/>
+            </svg>
+          </div>
+          <span class="ck-step__n">02</span>
+          <h3>Choose an action or sound</h3>
+          <p>Lights, a text, a smart-home scene — or a soundboard clip straight from the speaker.</p>
+        </article>
+        <article class="ck-step ck-reveal">
+          <div class="ck-step__icon">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M24 4v8M24 36v8M4 24h8M36 24h8"/><circle cx="24" cy="24" r="10"/>
+            </svg>
+          </div>
+          <span class="ck-step__n">03</span>
+          <h3>Click</h3>
+          <p>One tactile press fires it instantly — and the speaker can react out loud.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Live demo ===== -->
+    <section class="ck-demo" id="ckdemo">
+      <div class="ck-demo__glow"></div>
+      <div class="section-head ck-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Live demo</span>
+          <h2 class="section-head__title">Three buttons. Infinite actions.</h2>
+          <p class="section-head__sub">Press a button below to feel it. <em>Turn your sound on</em> 🔊 — the speaker reacts.</p>
+        </div>
+      </div>
+
+      <div class="ck-demo__panel ck-reveal">
+        <!-- the device responding -->
+        <div class="ck-demo__stage">
+          <div class="ck-demo__readout">
+            <span class="ck-demo__status" id="ckStatus">All quiet</span>
+            <div class="ck-demo__waves" id="ckWaves" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+        </div>
+
+        <!-- the buttons -->
+        <div class="ck-demo__keys">
+          <button class="ck-bigkey" type="button" data-do="lights">
+            <span class="ck-bigkey__ico">💡</span>
+            <span class="ck-bigkey__label">Button 1</span>
+            <span class="ck-bigkey__sub">Toggle the lights</span>
+          </button>
+          <button class="ck-bigkey" type="button" data-do="boom">
+            <span class="ck-bigkey__ico">🔊</span>
+            <span class="ck-bigkey__label">Button 2</span>
+            <span class="ck-bigkey__sub">Soundboard "Boom"</span>
+          </button>
+          <button class="ck-bigkey" type="button" data-do="miss">
+            <span class="ck-bigkey__ico">💌</span>
+            <span class="ck-bigkey__label">Button 3</span>
+            <span class="ck-bigkey__sub">Send "I miss you"</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== For couples: clicker → phone notifications ===== -->
+    <section class="ck-couples">
+      <div class="section-head ck-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> For couples</span>
+          <h2 class="section-head__title">A press they feel <span class="grad-text">across any distance</span></h2>
+          <p class="section-head__sub">Map each button to a little message. Press one — it lands on their phone in an instant.</p>
+        </div>
+      </div>
+
+      <div class="ck-couples__panel ck-reveal">
+        <!-- the clicker — drawn in SVG, the three keys are clickable -->
+        <div class="ck-couples__device">
+          <svg class="ck-couples__clicker" viewBox="0 0 240 300" role="img" aria-label="Heart Box clicker with three buttons">
+            <defs>
+              <linearGradient id="ckBodyG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2c2c38"/><stop offset="1" stop-color="#141419"/></linearGradient>
+              <radialGradient id="ckHeartG" cx="40%" cy="30%" r="80%"><stop offset="0" stop-color="#ff9ec4"/><stop offset="1" stop-color="#ff4d7e"/></radialGradient>
+              <radialGradient id="ckKeyA" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#fff59e"/><stop offset="1" stop-color="#E5FF00"/></radialGradient>
+              <radialGradient id="ckKeyB" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#bfe9ff"/><stop offset="1" stop-color="#00A3FF"/></radialGradient>
+              <radialGradient id="ckKeyC" cx="35%" cy="28%" r="75%"><stop offset="0" stop-color="#ffc9dd"/><stop offset="1" stop-color="#ff5d8f"/></radialGradient>
+            </defs>
+            <!-- body -->
+            <rect x="18" y="12" width="204" height="276" rx="40" fill="url(#ckBodyG)" stroke="#3a3a46" stroke-width="2"/>
+            <rect x="18" y="12" width="204" height="120" rx="40" fill="#ffffff" opacity=".04"/>
+            <!-- heart emblem -->
+            <path d="M120 50 C 112 38 94 38 94 56 C 94 72 114 84 120 90 C 126 84 146 72 146 56 C 146 38 128 38 120 50 Z" fill="url(#ckHeartG)"/>
+            <!-- speaker grille -->
+            <g fill="#454553"><circle cx="100" cy="110" r="2.6"/><circle cx="110" cy="110" r="2.6"/><circle cx="120" cy="110" r="2.6"/><circle cx="130" cy="110" r="2.6"/><circle cx="140" cy="110" r="2.6"/></g>
+            <!-- three clickable keys -->
+            <g class="ck-couples__btn" data-msg="I miss you" role="button" tabindex="0" aria-label="Send: I miss you">
+              <circle class="ck-couples__keybg" cx="120" cy="150" r="29" fill="url(#ckKeyA)"/>
+              <ellipse cx="112" cy="143" rx="12" ry="7" fill="#fff" opacity=".4"/>
+              <text class="ck-couples__keynum" x="120" y="158" text-anchor="middle">1</text>
+            </g>
+            <g class="ck-couples__btn" data-msg="Just thought about you" role="button" tabindex="0" aria-label="Send: Just thought about you">
+              <circle class="ck-couples__keybg" cx="120" cy="203" r="29" fill="url(#ckKeyB)"/>
+              <ellipse cx="112" cy="196" rx="12" ry="7" fill="#fff" opacity=".4"/>
+              <text class="ck-couples__keynum" x="120" y="211" text-anchor="middle">2</text>
+            </g>
+            <g class="ck-couples__btn" data-msg="💕" role="button" tabindex="0" aria-label="Send: heart">
+              <circle class="ck-couples__keybg" cx="120" cy="256" r="29" fill="url(#ckKeyC)"/>
+              <ellipse cx="112" cy="249" rx="12" ry="7" fill="#fff" opacity=".4"/>
+              <text class="ck-couples__keynum" x="120" y="264" text-anchor="middle">3</text>
+            </g>
+          </svg>
+          <ul class="ck-couples__legend">
+            <li><span class="ck-couples__dot" style="--c:#E5FF00">1</span> "I miss you"</li>
+            <li><span class="ck-couples__dot" style="--c:#00A3FF">2</span> "Just thought about you"</li>
+            <li><span class="ck-couples__dot" style="--c:#ff5d8f">3</span> Send a 💕</li>
+          </ul>
+        </div>
+
+        <!-- their phone -->
+        <div class="ck-phone" aria-label="Their phone">
+          <div class="ck-phone__notch"></div>
+          <div class="ck-phone__screen">
+            <div class="ck-phone__top"><span>9:41</span><span>5G ▮▮▮</span></div>
+            <div class="ck-phone__clock"><strong>9:41</strong><span>Today</span></div>
+            <div class="ck-phone__notifs" id="ckPhoneNotifs">
+              <p class="ck-phone__hint" id="ckPhoneHint">Press a button to send →</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Fidget mode: pure tactile clicking, no action ===== -->
+    <section class="ck-fidget">
+      <div class="ck-fidget__glow"></div>
+      <div class="ck-fidget__inner ck-reveal">
+        <div class="ck-fidget__copy">
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Or just… click</span>
+          <h2 class="section-head__title">No action. <span class="grad-text">Just the click.</span></h2>
+          <p>It's also just a fidget toy, click repeatedly for a satisfying blue switch sound.</p>
+          <ul class="ck-fidget__tags">
+            <li>Pocket-sized</li>
+            <li>Weighted, tactile press</li>
+            <li>Endlessly clickable</li>
+          </ul>
+        </div>
+        <div class="ck-fidget__play">
+          <button class="ck-clicker" id="ckClicker" type="button" aria-label="Click the Heart Box">
+            <span class="ck-clicker__ring" aria-hidden="true"></span>
+            <span class="ck-clicker__btn" aria-hidden="true">❤</span>
+          </button>
+          <div class="ck-clicker__meter">
+            <strong id="ckCount">0</strong>
+            <span>clicks &amp; counting</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Possibilities ===== -->
+    <section class="ck-poss">
+      <div class="section-head ck-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Possibilities</span>
+          <h2 class="section-head__title">A single click. <span class="grad-text">Endless possibilities.</span></h2>
+        </div>
+      </div>
+      <div class="ck-poss__grid">
+        <article class="ck-pcard ck-reveal" style="--c:var(--yellow)">
+          <span class="ck-pcard__ico">💡</span>
+          <h3>Control your room</h3>
+          <p>Lights, plugs, the kettle — fire a whole scene the instant you press down.</p>
+        </article>
+        <article class="ck-pcard ck-reveal" style="--c:var(--purple)">
+          <span class="ck-pcard__ico">💌</span>
+          <h3>Message someone you love</h3>
+          <p>One button quietly sends "I miss you" — or a heart to their Canvas.</p>
+        </article>
+        <article class="ck-pcard ck-reveal" style="--c:var(--blue-2)">
+          <span class="ck-pcard__ico">🔊</span>
+          <h3>Soundboard &amp; memes</h3>
+          <p>Drop a "Boom", an air-horn, or your own clip straight out of the speaker.</p>
+        </article>
+        <article class="ck-pcard ck-reveal" style="--c:var(--green)">
+          <span class="ck-pcard__ico">🎬</span>
+          <h3>Stream &amp; focus</h3>
+          <p>Scene-switch, mute, or launch your focus playlist without breaking flow.</p>
+        </article>
+        <article class="ck-pcard ck-reveal" style="--c:#ec4899">
+          <span class="ck-pcard__ico">⚡</span>
+          <h3>Shortcuts &amp; macros</h3>
+          <p>Chain dozens of app actions into a single, satisfying click.</p>
+        </article>
+        <article class="ck-pcard ck-reveal" style="--c:#00a3ff">
+          <span class="ck-pcard__ico">🏠</span>
+          <h3>Smart-home scenes</h3>
+          <p>Good-morning, movie-night, bedtime — one button per mood.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Specs ===== -->
+    <section class="ck-specs">
+      <div class="section-head ck-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> Specs</span>
+          <h2 class="section-head__title">Tiny box, big click</h2>
+        </div>
+      </div>
+      <div class="ck-specs__grid ck-reveal">
+        <div class="ck-spec"><span>Buttons</span><strong>3 · fully programmable</strong></div>
+        <div class="ck-spec"><span>Speaker</span><strong>Built-in 1 W</strong></div>
+        <div class="ck-spec"><span>Battery</span><strong>Up to 2 weeks</strong></div>
+        <div class="ck-spec"><span>Power</span><strong>USB-C rechargeable</strong></div>
+        <div class="ck-spec"><span>Connectivity</span><strong>WiFi & Bluetooth LE</strong></div>
+        <div class="ck-spec"><span>Switch</span><strong>Mechanical Blue switch</strong></div>
+        <div class="ck-spec"><span>Mapping</span><strong>Stamp app · no-code</strong></div>
+        <div class="ck-spec"><span>In the box</span><strong>Heart Box · USB-C cable</strong></div>
+        <div class="ck-spec"><span>App</span><strong>iOS &amp; Android</strong></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="ck-faq">
+      <div class="section-head ck-centered">
+        <div>
+          <span class="eyebrow"><span class="eyebrow__dot"></span> FAQ</span>
+          <h2 class="section-head__title">Good questions</h2>
+        </div>
+      </div>
+      <div class="ck-faq__list" id="ckFaq">
+        <details class="ck-faq__item ck-reveal">
+          <summary>What can a single click do?<span class="ck-faq__plus"></span></summary>
+          <p>Anything you map in the app — turn on lights, send a message, run a macro, switch a scene, or play a sound. Each of the three buttons can do something completely different.</p>
+        </details>
+        <details class="ck-faq__item ck-reveal">
+          <summary>Can it play custom sounds?<span class="ck-faq__plus"></span></summary>
+          <p>Yes. The built-in speaker can play anything you map it to, and you can upload your own sounds —  use it as a soundboard even.</p>
+        </details>
+        <details class="ck-faq__item ck-reveal">
+          <summary>How long does the battery last?<span class="ck-faq__plus"></span></summary>
+          <p>Up to two weeks of typical use on a charge. Top it up over USB-C — no batteries to swap.</p>
+        </details>
+        <details class="ck-faq__item ck-reveal">
+          <summary>Does each button do something different?<span class="ck-faq__plus"></span></summary>
+          <p>It can. There are three independent buttons, and each supports single-press, double-press, and hold — so really you've got room for far more than three actions.</p>
+        </details>
+        <details class="ck-faq__item ck-reveal">
+          <summary>Do I need to know how to code?<span class="ck-faq__plus"></span></summary>
+          <p>Not at all. Everything is set up visually in the Stamp app in a couple of minutes, and you can re-map it whenever you like.</p>
+        </details>
+        <details class="ck-faq__item ck-reveal">
+          <summary>Returns and warranty?<span class="ck-faq__plus"></span></summary>
+          <p>30-day no-questions returns and a 1-year hardware warranty, backed by humans who actually answer.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ===== Closing CTA ===== -->
+    <section class="ck-cta ck-reveal">
+      <div class="ck-cta__inner">
+        <h2>Put a click on everything you love.</h2>
+        <p>Map it in minutes. Re-map it forever.</p>
+        <div class="ck-cta__row">
+          <a href="#" class="btn btn--clicker-solid">Buy Heart Box — <span data-price="clicker">$89</span></a>
+          <a href="#ckdemo" class="btn btn--ghost">See the live room demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="brand">
+        <span class="brand__mark"><svg viewBox="0 0 32 32" width="24" height="24"><rect x="5" y="5" width="22" height="22" rx="6" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="16" cy="16" r="5" fill="currentColor"/></svg></span>
+        <span class="brand__name">Stamp</span>
+      </div>
+      <nav class="footer__cols">
+        <div><h4>Shop</h4><a href="aero-clicker">Clickers</a><a href="aero-canvas">Canvas</a><a href="aero#shop">Accessories</a><a href="#">Bundles</a></div>
+        <div><h4>Company</h4><a href="#">About</a><a href="#">Studio</a><a href="#">Press</a></div>
+        <div><h4>Support</h4><a href="#">Help center</a><a href="#">Warranty</a><a href="#" data-chat>Contact</a></div>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 Stamp Hardware. All rights reserved.</span>
+      <span>Stay connected.</span>
+    </div>
+  </footer>
+
+  <script src="clicker.js?v=2"></script>
+  <script type="module" src="store.js"></script>
+
+  <!-- tawk.to live chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a2023e2d0b6e01c2e34bfee/1jq6oobri';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>

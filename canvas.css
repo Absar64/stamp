@@ -25,6 +25,7 @@ body.is-ready .cv-in{opacity:1;transform:none}
 }
 .cv-back:hover{color:var(--text);gap:11px}
 .cv-hero__grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.cv-hero__grid>*{min-width:0}
 
 /* gallery stage */
 .cv-stage{position:relative;display:grid;place-items:center;min-height:440px}

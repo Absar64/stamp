@@ -22,7 +22,8 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+/* clip horizontal overflow at the root so the page never scrolls sideways */
+html{scroll-behavior:smooth;overflow-x:clip;max-width:100%}
 body{
   background:var(--bg);
   color:var(--text);
@@ -130,6 +131,7 @@ img,svg{display:block;max-width:100%}
   position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;
   gap:40px;align-items:center;
 }
+.hero__grid>*{min-width:0}
 .eyebrow{
   display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;
   letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
@@ -586,6 +588,10 @@ img,svg{display:block;max-width:100%}
 }
 @media (max-width:560px){
   .band__grid,.grid{grid-template-columns:1fr}
+  /* keep the configurator panel inside the screen */
+  .config__stage,.config__room{min-width:0}
+  .config__stage{padding:28px 18px}
+  .hw{width:230px;height:164px}
   .hero{padding-top:120px}
   .footer__top{flex-direction:column;gap:24px}
   .ticker{display:none}

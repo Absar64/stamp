@@ -1,5 +1,9 @@
 /* ===== Aero — Frutiger Aero / Web 2.0 revival theme (light only) ===== */
 
+/* clip horizontal overflow at the root so the page never scrolls sideways */
+html{overflow-x:clip;max-width:100%}
+.aero img,.aero svg{max-width:100%}
+
 /* tokens */
 .aero{
   --bg:#F5F9FC;            /* pristine gloss-white base */
@@ -162,6 +166,7 @@
 /* ===== hero ===== */
 .aero-hero{position:relative;max-width:var(--maxw);margin:0 auto;padding:64px 22px 40px}
 .aero-hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.aero-hero__grid>*{min-width:0}
 .aero-hero__badge{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:800;color:#06303f;padding:7px 14px;border-radius:100px;background:var(--glass-2);border:1px solid rgba(255,255,255,.8);box-shadow:0 10px 22px -14px rgba(56,182,255,.6)}
 .aero-hero__title{font-size:clamp(2.6rem,6.4vw,4.6rem);font-weight:800;line-height:1.02;letter-spacing:-.03em;margin:18px 0 16px}
 .aero-hero__lead{color:var(--ink-soft);font-size:1.16rem;max-width:46ch;line-height:1.6}
@@ -275,6 +280,10 @@
 .aero-card__media--art{display:block;position:relative;padding:0}
 .aero-card__media--art [data-aero]{position:absolute;inset:0}
 .aero-card__charm{width:52%;animation:aeroBob 6s ease-in-out infinite}
+/* canvas device mockup sized to fit inside the catalog card */
+.aero-card__media--device{background:linear-gradient(180deg,#e9e2ff,#fff)}
+.aero-card__media--device .cv-device{transform:scale(.82)}
+.aero-card__media--device .cv-device,.aero-card__media--device .cv-device *{box-sizing:border-box}
 .aero-tag{position:absolute;top:14px;left:14px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#06303f;padding:6px 11px;border-radius:100px;background:var(--glass-2);border:1px solid rgba(255,255,255,.8);z-index:1}
 .aero-tag--art{background:linear-gradient(100deg,var(--sky),var(--lime));color:#06303f}
 .aero-tag--charm{background:linear-gradient(100deg,var(--pink),var(--peach));color:#fff}
@@ -361,6 +370,7 @@
 .aero-prod__back{display:inline-flex;align-items:center;gap:7px;color:var(--ink-soft);font-weight:700;font-size:.9rem;margin-bottom:22px}
 .aero-prod__back:hover{color:var(--ink)}
 .aero-prod__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.aero-prod__grid>*{min-width:0}
 .aero-prod__stage{position:relative;display:grid;place-items:center;min-height:440px}
 .aero-prod__frame{position:relative;width:min(440px,90%);border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.9);box-shadow:0 1px 0 rgba(255,255,255,.9) inset,0 40px 80px -32px rgba(56,182,255,.7);animation:aeroBob 7s ease-in-out infinite;background:#fff}
 .aero-prod__frame svg{display:block;width:100%;height:auto}
@@ -391,6 +401,10 @@
 .aero-prod__perks .tick{color:var(--sky)}
 .aero-buy{margin-top:24px}
 .aero-buy__note{margin-top:14px;color:var(--muted);font-size:.84rem}
+
+/* out-of-stock state */
+.aero-stock--out{display:inline-flex;align-items:center;font-size:.74rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#fff;background:#e1556b;padding:5px 11px;border-radius:100px}
+.aero-soldout,.aero-soldout:hover{background:#d3dde6;color:#5b7488;border-color:transparent;box-shadow:none;transform:none;cursor:not-allowed}
 
 /* "UK only" region badge */
 .uk-badge{display:inline-flex;align-items:center;gap:6px;width:fit-content;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.05em;padding:5px 11px;border-radius:100px;background:#fff;border:1px solid rgba(16,40,58,.14);color:#10283a;box-shadow:0 6px 14px -8px rgba(16,40,58,.4)}

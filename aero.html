@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="aero.css" />
+  <!-- canvas.css only powers the cv-device mockup used on the Canvas card -->
+  <link rel="stylesheet" href="canvas.css" />
 </head>
 <body class="aero">
   <!-- floating sky: clouds + bubbles injected by aero.js -->
@@ -131,6 +133,7 @@
               <h3 class="aero-card__name">Level 94 — liminal green hills</h3>
               <span class="aero-card__price" data-price="level94">$94</span>
             </div>
+            <span class="aero-stock--out">Out of stock</span>
             <p class="aero-card__desc">Safe during the day with almond water fountains and vintage vehicles, the level becomes dangerous at night when aggressive entities spawn and hunt down the player, so keep the light on?</p>
             <a href="level94" class="btn btn--aero btn--card">Explore Level 94 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
           </div>
@@ -153,6 +156,49 @@
           </div>
         </article>
 
+        <!-- Heart Box Clicker (hardware) -->
+        <article class="aero-card glass aero-reveal">
+          <div class="aero-card__media">
+            <span class="aero-tag aero-tag--art">Hardware · Clicker</span>
+            <img src="assets/heart.png" alt="Heart Box Clicker" style="width:66%;height:auto;filter:drop-shadow(0 22px 30px rgba(56,182,255,.35))" />
+          </div>
+          <div class="aero-card__body">
+            <div class="aero-card__row">
+              <h3 class="aero-card__name">Heart Box Clicker</h3>
+              <span class="aero-card__price" data-price="clicker">$89</span>
+            </div>
+            <p class="aero-card__desc">Three programmable buttons with a built-in speaker — map each to a message, a sound, or a whole routine.</p>
+            <a href="aero-clicker" class="btn btn--aero btn--card">Explore the Heart Box <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Canvas paired screens (hardware) -->
+        <article class="aero-card glass aero-reveal">
+          <div class="aero-card__media aero-card__media--charm aero-card__media--device">
+            <span class="aero-tag aero-tag--charm">Hardware · Canvas</span>
+            <!-- same Canvas device mockup as the dedicated product page (styled by canvas.css) -->
+            <div class="cv-device">
+              <div class="cv-device__frame">
+                <div class="cv-device__screen">
+                  <span class="cv-device__notif">New letter</span>
+                  <span class="cv-device__img">❤️</span>
+                </div>
+                <span class="cv-device__cam"></span>
+              </div>
+              <div class="cv-device__neck"></div>
+              <div class="cv-device__base"></div>
+            </div>
+          </div>
+          <div class="aero-card__body">
+            <div class="aero-card__row">
+              <h3 class="aero-card__name">Canvas — paired screens</h3>
+              <span class="aero-card__price" data-price="canvas">$129</span>
+            </div>
+            <p class="aero-card__desc">A little screen for each of you. Tap an image, photo, or doodle and it lands on their desk the moment you send it.</p>
+            <a href="aero-canvas" class="btn btn--aero btn--card">Explore the Canvas <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
+          </div>
+        </article>
+
       </div>
 
       <!-- link back to the hardware flagship store -->
@@ -160,8 +206,8 @@
         <span class="stamp-cta__glow" aria-hidden="true"></span>
         <span class="stamp-cta__copy">
           <span class="stamp-cta__kicker">Flagship store</span>
-          <strong class="stamp-cta__title">Explore eletronic Stamp products</strong>
-          <span class="stamp-cta__sub">Eletronic Fidget clickers shaped as chocolate, paired Love screens to stay connected - Perfect For couples</span>
+          <strong class="stamp-cta__title">Explore electronic Stamp products</strong>
+          <span class="stamp-cta__sub">Electronic Fidget clickers shaped as chocolate, paired Love screens to stay connected - Perfect For couples</span>
         </span>
         <img class="stamp-cta__img" src="assets/button2.png" alt="" aria-hidden="true" />
       </a>
