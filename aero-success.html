@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Order confirmed — Stamp</title>
+  <meta name="description" content="Your Stamp order is confirmed." />
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="aero.css" />
+</head>
+<body class="aero aero-ok-page">
+  <div class="aero-sky" id="aeroSky" aria-hidden="true"></div>
+
+  <!-- ===== Minimal nav ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="aero" class="brand" aria-label="Stamp home">
+        <span class="brand__mark" data-aero="logo" aria-hidden="true"></span>
+        <span class="brand__name">Stamp</span>
+      </a>
+      <a href="aero#shop" class="link-arrow" style="margin-left:auto">Keep shopping
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+      </a>
+    </div>
+  </header>
+
+  <main class="aero-ok">
+    <section class="aero-ok__card glass">
+      <div class="aero-ok__check">
+        <svg viewBox="0 0 120 120" width="104" height="104" aria-hidden="true">
+          <circle class="aero-ok__ring" cx="60" cy="60" r="54" fill="none" stroke-width="5"/>
+          <path class="aero-ok__tick" d="M38 62 L54 78 L84 44" fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+      <span class="aero-ok__eyebrow">Payment successful</span>
+      <h1 class="aero-ok__title">Your order is <span class="grad-text">confirmed.</span></h1>
+      <p class="aero-ok__lead">Thank you — we've got it from here. A confirmation email is drifting to your inbox right now.</p>
+
+      <ul class="aero-ok__next">
+        <li>
+          <span class="aero-ok__ico">✉️</span>
+          <div><strong>Check your email</strong><p>Your confirmation &amp; receipt have been sent. (Do peek in spam, just in case.)</p></div>
+        </li>
+        <li>
+          <span class="aero-ok__ico">🎨</span>
+          <div><strong>Made in studio</strong><p>Please remember this is a preorder! Delivery may take a while.</p></div>
+        </li>
+        <li>
+          <span class="aero-ok__ico">📦</span>
+          <div><strong>Tracking to follow</strong><p>You'll get a second email with tracking the moment it ships.</p></div>
+        </li>
+      </ul>
+
+      <div class="aero-ok__cta">
+        <a href="aero#shop" class="btn btn--aero">Continue shopping</a>
+        <a href="aero" class="btn btn--glass">Back to Stamp</a>
+      </div>
+
+      <p class="aero-ok__help">Questions about your order? <a href="#" data-chat>Contact support</a> — real humans, quick replies.</p>
+    </section>
+  </main>
+
+  <script src="aero-assets.js"></script>
+  <script src="aero.js"></script>
+
+  <!-- tawk.to live chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a2023e2d0b6e01c2e34bfee/1jq6oobri';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>
