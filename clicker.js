@@ -29,17 +29,7 @@ document.querySelectorAll('#ckFinish .ck-swatch').forEach(sw => {
   });
 });
 
-// ===== Pack picker: update price =====
-const priceEl = document.getElementById('ckPrice');
-const saveEl = document.getElementById('ckSave');
-document.querySelectorAll('#ckPack .ck-pack').forEach(p => {
-  p.addEventListener('click', () => {
-    document.querySelectorAll('#ckPack .ck-pack').forEach(x => x.classList.remove('is-active'));
-    p.classList.add('is-active');
-    priceEl.textContent = '$' + p.dataset.price;
-    saveEl.textContent = p.dataset.save;
-  });
-});
+// currency + live pricing are handled globally in store.js
 
 // ===== Tiny synth so the "speaker" actually makes a sound =====
 let audio;
@@ -146,3 +136,43 @@ const revealer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 revealEls.forEach(el => revealer.observe(el));
+
+// ===== For couples: each button sends a message to the phone =====
+(function initCouples() {
+  const notifs = document.getElementById('ckPhoneNotifs');
+  if (!notifs) return;
+  const hint = document.getElementById('ckPhoneHint');
+
+  document.querySelectorAll('.ck-couples__btn').forEach(btn => {
+    // svg keys aren't native buttons — support enter/space too
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.dispatchEvent(new Event('click')); }
+    });
+    btn.addEventListener('click', () => {
+      btn.classList.add('is-pressed');
+      setTimeout(() => btn.classList.remove('is-pressed'), 150);
+      if (hint) hint.remove();
+
+      // build a lock-screen notification
+      const n = document.createElement('div');
+      n.className = 'ck-notif';
+      n.innerHTML = '<span class="ck-notif__app">❤️</span>' +
+        '<div class="ck-notif__body"><div class="ck-notif__row"><strong>Stamp</strong><span>now</span></div><p></p></div>';
+      n.querySelector('p').textContent = btn.dataset.msg;   // textContent = no injection
+      notifs.prepend(n);
+      requestAnimationFrame(() => n.classList.add('is-in'));
+      playChime();
+
+      // keep only the latest few
+      notifs.querySelectorAll('.ck-notif').forEach((el, i) => { if (i >= 4) el.remove(); });
+    });
+  });
+})();
+
+// ===== Contact controls open the tawk live chat =====
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-chat]');
+  if (!t) return;
+  e.preventDefault();
+  if (window.Tawk_API && typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
+});

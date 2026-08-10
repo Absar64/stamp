@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+  <title>Level 94 — Stamp</title>
+  <meta name="description" content="Level 94 by Stamp — an expansive, liminal pastel-hill and cloud-scape giclée art piece. Archival inks, five sizes, matte or gloss. The endless sunlit hallway for your wall." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="aero.css" />
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+</head>
+<body class="aero">
+  <div class="aero-sky" id="aeroSky" aria-hidden="true"></div>
+
+  <!-- ===== Nav ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="aero" class="brand" aria-label="Stamp home">
+        <span class="brand__mark" data-aero="logo" aria-hidden="true"></span>
+        <span class="brand__name">Stamp</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="aero" class="nav__link">Home</a>
+        <a href="aero#shop" class="nav__link">Shop</a>
+        <a href="level94" class="nav__link is-active">Level 94</a>
+        <a href="aero#support" class="nav__link">Support</a>
+      </nav>
+      <div class="nav__actions">
+        <select class="aero-currency" id="currencySelect" aria-label="Currency">
+          <option value="USD">$ USD</option>
+          <option value="GBP">£ GBP</option>
+          <option value="EUR">€ EUR</option>
+          <option value="AUD">A$ AUD</option>
+          <option value="CAD">C$ CAD</option>
+        </select>
+        <button class="nav__toggle" id="navToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Product hero ===== -->
+    <section class="aero-prod">
+      <a href="aero#shop" class="aero-prod__back">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg>
+        All goods
+      </a>
+
+      <div class="aero-prod__grid">
+        <div class="aero-prod__stage">
+          <span class="aero-frame__sun" data-aero="sun" style="position:absolute;top:0;right:6%;width:120px;z-index:2" aria-hidden="true"></span>
+          <div class="aero-prod__frame" id="aeroFrame" style="padding:18px;background:#ffffff">
+            <div data-aero="level94" data-png="true" style="border-radius:18px;overflow:hidden"></div>
+          </div>
+        </div>
+
+        <div class="aero-prod__info">
+          <div class="aero-prod__rating"><span class="aero-prod__stars">★★★★★</span><span>4.9 </span></div>
+          <h1 class="aero-prod__name">Level 94</h1>
+          <p class="aero-prod__tagline">Trap the unsettling beauty of an endless, <span class="grad-text">forgotten neighborhood</span> — right on your desk with this mind-bending liminal infinity cube.</p>
+
+          <div class="aero-prod__priceRow">
+            <span class="aero-prod__price" id="aeroPrice" data-price="level94">$94</span>
+            <span class="aero-prod__was" data-was="level94">$120</span>
+            <span class="aero-prod__save" id="aeroSave" data-save="level94" data-buy="level94">Save $26</span>
+            <span class="aero-stock--out" data-stockbadge="level94" style="display:none">Out of stock</span>
+          </div>
+
+          <div class="preorder">
+            <span class="preorder__badge">Pre-order only</span>
+            <p class="preorder__line"><strong><span data-claimed="level94">96</span>/<span data-goal="level94">300</span></strong> claimed · <strong data-sold="level94">0</strong> sold · Production delivery estimated: <strong data-delivery="level94">Early July</strong></p>
+          </div>
+
+          <div class="aero-buy">
+            <div data-buy="level94">
+              <div class="pay-stack" style="width:max-content;max-width:100%;margin-inline:0">
+                <stripe-buy-button
+                  buy-button-id="buy_btn_1TehtQIcuF9dyPkIE2A16gg2"
+                  publishable-key="pk_live_51P7N7HIcuF9dyPkIU2zkX9yyOVNITUzNeVZTCiHvPTQAn2f6hyDtSQOTD5Gdr9BzOFxTX2do5cGZEWcdTVy0hXxp00UqchO5Mc">
+                </stripe-buy-button>
+                <img class="pay-cards" src="assets/cards.png" alt="Accepted payment methods" style="display:block;width:60%;height:auto;margin:10px 0 0" />
+              </div>
+              <p class="aero-buy__note">Worldwide shipping · 30-day returns</p>
+            </div>
+            <div data-soldout="level94" style="display:none">
+              <button class="btn btn--aero aero-soldout" type="button" disabled aria-disabled="true">Sold out</button>
+              <p class="aero-buy__note">This piece is currently out of stock — check back soon.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Gallery carousel (auto-scrolling) ===== -->
+    <!-- to add more images: save as level941.png, level942.png, level943.png … in assets/aero/
+         then duplicate the slide pair (one in each half) for each new image. -->
+    <section class="aero-carousel" aria-label="More views of Level 94">
+      <div class="aero-carousel__viewport">
+        <div class="aero-carousel__track">
+          <!-- first half -->
+          <figure class="aero-carousel__slide"><img src="assets/aero/level941.png" alt="Level 94 print" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--sky"><img src="assets/aero/level942.png" alt="Level 94 detail" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--lime"><img src="assets/aero/level943.png" alt="Level 94 on a wall" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--peach"><img src="assets/aero/level944.png" alt="Level 94 close-up" loading="lazy" /></figure>
+          <!-- duplicate half (keeps the loop seamless) -->
+          <figure class="aero-carousel__slide" aria-hidden="true"><img src="assets/aero/level941.png" alt="" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--sky" aria-hidden="true"><img src="assets/aero/level942.png" alt="" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--lime" aria-hidden="true"><img src="assets/aero/level943.png" alt="" loading="lazy" /></figure>
+          <figure class="aero-carousel__slide aero-carousel__slide--peach" aria-hidden="true"><img src="assets/aero/level944.png" alt="" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== How it works ===== -->
+
+
+    <!-- ===== Specs ===== -->
+    <section class="aero-sec">
+      <div class="section-head aero-sec__head">
+        <div><span class="eyebrow" style="justify-content:center"><span class="eyebrow__dot"></span> Specs</span><h2 class="section-head__title">The fine print</h2></div>
+      </div>
+      <div class="aero-specs__grid aero-reveal">
+        <div class="aero-spec"><span>design</span><strong>infinite-mirror diorama</strong></div>
+        <div class="aero-spec"><span>casing</span><strong>crystal-clear acrylic</strong></div>
+        <div class="aero-spec"><span>lighting</span><strong>warm-glow micro leds</strong></div>
+        <div class="aero-spec"><span>dimensions</span><strong>10cm x 10cm x 10cm cube</strong></div>
+        <div class="aero-spec"><span>display</span><strong>desktop or shelf art</strong></div>
+        <div class="aero-spec"><span>power</span><strong>easy replaceable batteries</strong></div>
+        <div class="aero-spec"><span>edition</span><strong>open, signed studio mark</strong></div>
+        <div class="aero-spec"><span>ships</span><strong>securely boxed, worldwide</strong></div>
+        <div class="aero-spec"><span>longevity</span><strong>500+ hour led lifespan</strong></div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="aero-sec">
+      <div class="section-head aero-sec__head">
+        <div><span class="eyebrow" style="justify-content:center"><span class="eyebrow__dot"></span> FAQ</span><h2 class="section-head__title">Good questions</h2></div>
+      </div>
+      <div class="aero-faq__list">
+        <details class="aero-faq__item glass aero-reveal"><summary>What will damage it?<span class="aero-faq__plus"></span></summary><p>Designed exclusively for display on flat surfaces. To preserve its pristine clarity, please avoid touching or rubbing the mirror surface. This delicate piece is crafted beautifully to be admired from afar.</p></details>
+        <details class="aero-faq__item glass aero-reveal"><summary>Why does mine look slightly different?<span class="aero-faq__plus"></span></summary><p>Because it is. Every box is crafted by hand, so the gradient, swirl, and tiny imperfections are unique to yours.</p></details>
+        <details class="aero-faq__item glass aero-reveal"><summary>How long does the battery last?<span class="aero-faq__plus"></span></summary><p>Enjoy up to 7 days of continuous use, or weeks of power with occasional use. When the power runs low, simply replace the batteries with standard replacements available at your local store. </p></details>
+        <details class="aero-faq__item glass aero-reveal"><summary>How long until it arrives?<span class="aero-faq__plus"></span></summary><p>We are currently only taking pre-orders at the moment. Shipment starts late June.</p></details>
+        <details class="aero-faq__item glass aero-reveal"><summary>Returns?<span class="aero-faq__plus"></span></summary><p>30-day no-questions returns. If it arrives damaged, we reprint and reship straight away.</p></details>
+      </div>
+    </section>
+
+    <!-- ===== Closing CTA ===== -->
+    <section class="aero-prodcta aero-reveal">
+      <div class="aero-prodcta__inner">
+        <h2>Hang the endless hallway.</h2>
+        <p>A window into somewhere softer — printed to last a lifetime.</p>
+        <div class="aero-prodcta__row">
+          <a href="#" class="btn btn--aero" data-buy="level94">Buy Level 94 — <span data-price="level94">$94</span></a>
+          <button class="btn btn--aero aero-soldout" type="button" data-soldout="level94" style="display:none" disabled aria-disabled="true">Sold out</button>
+          <a href="omori" class="btn btn--glass">See the Omori Key ring</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="aero-footer">
+    <div class="aero-footer__top">
+      <div class="brand"><span class="brand__mark" data-aero="logo"></span><span class="brand__name">Stamp</span></div>
+      <nav class="aero-footer__cols">
+        <div><h4>Shop</h4><a href="level94">Level 94</a><a href="omori">Omori Key ring</a><a href="aero#shop">Coming soon</a></div>
+        <div><h4>Studio</h4><a href="#">About</a><a href="#">Process</a><a href="#">Lookbook</a></div>
+        <div><h4>Support</h4><a href="#">Help center</a><a href="#">Shipping</a><a href="#" data-chat>Live chat</a><a href="https://www.instagram.com/stamp.ac2?igsh=MWp1OXdyOXB4MWI3MQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram DM</a></div>
+      </nav>
+      <div class="aero-help">
+        <strong class="aero-help__title">Need help?</strong>
+        <p class="aero-help__text">If our <a href="#" data-chat>live chat</a> is busy, message us anytime on <a href="https://www.instagram.com/stamp.ac2?igsh=MWp1OXdyOXB4MWI3MQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram @stamp.ac2</a> or email the artist directly at <a href="mailto:cloudscape.stamp@gmail.com">cloudscape.stamp@gmail.com</a>. Our DMs are always open — happy to help with any question or order.</p>
+      </div>
+    </div>
+    <div class="aero-footer__bottom"><span>© 2026 Stamp Studio. All rights reserved.</span><span>Stay soft.</span></div>
+  </footer>
+
+  <script src="aero-assets.js"></script>
+  <script src="aero.js"></script>
+  <script type="module" src="store.js"></script>
+
+  <!-- tawk.to live chat -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6a2023e2d0b6e01c2e34bfee/1jq6oobri';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+</body>
+</html>

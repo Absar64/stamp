@@ -19,7 +19,7 @@ const phrases = [
   'queue your focus playlist',
   'start the kettle from your desk',
   'capture the moment, hands-free',
-  'lock the front door',
+  'lock or unlock the front door',
 ];
 const rotator = document.getElementById('rotator');
 const chips = [...document.querySelectorAll('.hero__chips .chip')];
@@ -152,29 +152,18 @@ document.querySelectorAll('.keycap').forEach(cap => {
   });
 })();
 
-// ===== Cart counter (demo) =====
-let cartCount = 2;
-const countEl = document.querySelector('.cart__count');
-document.querySelectorAll('.btn--card').forEach(btn => {
-  btn.addEventListener('click', () => {
-    cartCount++;
-    countEl.textContent = cartCount;
-    const original = btn.innerHTML;
-    btn.innerHTML = 'Added ✓';
-    btn.style.background = 'var(--green)';
-    btn.style.color = '#06160d';
-    btn.style.borderColor = 'var(--green)';
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.style.background = '';
-      btn.style.color = '';
-      btn.style.borderColor = '';
-    }, 1300);
-  });
-});
+// currency + live pricing are handled globally in store.js
 
 // pause rotator when tab hidden
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) clearInterval(rTimer);
   else rTimer = setInterval(cycle, 2600);
+});
+
+// ===== Contact controls open the tawk live chat =====
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-chat]');
+  if (!t) return;
+  e.preventDefault();
+  if (window.Tawk_API && typeof Tawk_API.maximize === 'function') Tawk_API.maximize();
 });
